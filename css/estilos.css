@@ -1,0 +1,78 @@
+ /* Mauricio Perez Mariano Albornoz */
+
+body {
+  background-color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+  background-color: white;
+  width: 95%;
+  padding-top: 20px;
+  border-radius: 6px;
+}
+
+article {
+  background-color: #f2f2f2;
+  border-radius: 6px;
+  width: 80%;
+  padding: 20px 30px;
+  margin: 30px 0px;
+  margin-left: 50px;
+}
+
+h2 {
+  margin-left: 50px;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  border: 2px solid black;
+  padding: 15px;
+}
+
+td {
+  border: 2px solid black;
+  padding: 8px;
+}
+
+button {
+  color: white;
+  background-color: #31a5b5;
+  padding: 20px;
+  border-radius: 6px;
+  border: none;
+  margin: 3px;
+}
+
+.inputcontainer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+label {
+  margin-left: 5px;
+  margin-right: 45px;
+}
+
+footer {
+  background-color: white;
+  width: 93%;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: brown;
+}

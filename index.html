@@ -1,222 +1,253 @@
+<!-- Mauricio Perez - Mariano Albornoz -->
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="estilos.css">    
+    <link rel="stylesheet" href="/css/estilos.css" />
     <title>Sistema de Gestión (Perez-Albornoz)</title>
   </head>
   <body>
-
     <main>
-     <h1>Sistema de Gestión (Perez-Albornoz)</h1>
-    <!-- Section para manejo de influencers -->
-    <section>
+      <h1>Sistema de Gestión (Perez-Albornoz)</h1>
+      <!-- Section para manejo de influencers -->
+      <section>
         <!-- Título de section -->
         <h2>Manejo de Influencers</h2>
 
         <!-- Atla de influencer -->
         <article>
-        <h3>Alta de influencer</h3>
-        <button>Agregar influencer</button>
+          <h3>Alta de influencer</h3>
+          <button>Agregar influencer</button>
         </article>
 
         <!-- Datos a agregar -->
         <article>
-        <p>Datos del influencer a agregar</p>
-        <p>Influencer</p>
-        <div class="inputcontainer"> 
-        <div><label>Nombre</label><input></div>
-        <div><label>Mail</label><input></div>
-        <div><label>%Comisión</label><input type="text"><button>Cancelar</button><button>Agregar</button>
-        </div>
-        </div>
+          <h3>Datos del influencer a agregar</h3>
+          <h4>Influencer</h4>
+
+          <div class="inputcontainer">
+            <label>Nombre</label><input />
+
+            <label>Mail</label><input />
+
+            <label>%Comisión</label><input type="text" />
+            <button>Cancelar</button>
+            <button>Agregar</button>
+          </div>
         </article>
 
         <!-- Tabla de influencers -->
         <article>
-            <table>
-                <!-- Encabezado de columnas de la tabla -->
-                <thead>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>%Comisión</th>
-                    <th>Total a cobrar</th>
-                    <th>Etiqueta</th>
-                    <th>Detalle</th>
-                </thead>
+          <h3>Tabla de influencers</h3>
 
-                <!-- Primera fila de la tabla -->
-                <tr>
-                    <td>Ana Perez</td>
-                    <td>ana.perez@email.com</td>
-                    <td>20%</td>
-                    <td>$ 600</td>
-                    <td>Icono</td>
-                    <td><Button>Ventas</Button></td>
-                </tr>
+          <table>
+            <!-- Encabezado de columnas de la tabla -->
+            <thead>
+              <th><button>Nombre ⮃</button></th>
+              <th>Email</th>
+              <th>%Comisión</th>
+              <th>Total a cobrar</th>
+              <th>Etiqueta</th>
+              <th>Detalle</th>
+            </thead>
 
-                <!-- Segunda fila de la tabla -->
-                <tr>
-                    <td>Juan Goméz</td>
-                    <td>juan.gomez@email.com</td>
-                    <td>10%</td>
-                    <td>$ 30</td>
-                    <td>Icono</td>
-                    <td><Button>Ventas</Button></td>
-                </tr>
+            <!-- Primera fila de la tabla -->
+            <tr>
+              <td>Ana Perez</td>
+              <td>ana.perez@email.com</td>
+              <td>20%</td>
+              <td>$ 600</td>
+              <td>🔥🟢</td>
+              <td><button>Ventas</button></td>
+            </tr>
 
-                <!-- Tercera fila de la tabla -->
-                <tr>
-                    <td>Lucia Martínez</td>
-                    <td>lucia.martinez@email.com</td>
-                    <td>95%</td>
-                    <td>$ 0</td>
-                    <td>Icono</td>
-                    <td><Button>Ventas</Button></td>
-                </tr>
-            </table>
+            <!-- Segunda fila de la tabla -->
+            <tr>
+              <td>Juan Goméz</td>
+              <td>juan.gomez@email.com</td>
+              <td>10%</td>
+              <td>$ 30</td>
+              <td></td>
+              <td><button>Ventas</button></td>
+            </tr>
 
-            <p>Información: Top comisión (cobra más $) Cero Ventas Venta más cara (mayor monto en una sola venta)</p>
+            <!-- Tercera fila de la tabla -->
+            <tr>
+              <td>Lucia Martínez</td>
+              <td>lucia.martinez@email.com</td>
+              <td>95%</td>
+              <td>$ 0</td>
+              <td>🟦</td>
+              <td><button>Ventas</button></td>
+            </tr>
+          </table>
+
+          <p>
+            Información: 🔥 Top comisión (cobra más $) 🟦 Cero Ventas 🟢 Venta
+            más cara (mayor monto en una sola venta)
+          </p>
         </article>
-    </section>
+      </section>
 
-    <!-- Section para manejo de artículos -->
-    <section>
+      <!-- Section para manejo de artículos -->
+      <section>
         <h2>Manejo de Artículos</h2>
-      <!-- Alta de Artículo -->
+        <!-- Alta de Artículo -->
         <article>
-        <h3>Alta de Artículo</h3>
-        <button>Agregar Artículo</button>
+          <h3>Alta de Artículo</h3>
+          <button>Agregar Artículo</button>
         </article>
 
         <!-- Datos a agregar -->
         <article>
-        <p>Datos del artículo a agregar</p>
-        <p>Artículo</p>
-        <div><label>Código</label><input></div>
-        <div><label>Descripción</label><input></div>
-        <div><label>Precio</label><input type="text"><button>Cancelar</button><button>Agregar</button>
-        </div>
+          <h3>Datos del artículo a agregar</h3>
+          <h4>Artículo</h4>
+
+          <div class="inputcontainer">
+            <div><label>Código</label><input /></div>
+            <div><label>Descripción</label><input /></div>
+            <div>
+              <label>Precio</label><input type="text" /><button>Cancelar</button
+              ><button>Agregar</button>
+            </div>
+          </div>
         </article>
 
         <!-- Tabla de artículos -->
         <article>
-            <table>
-                <!-- Encabezado de columnas de la tabla -->
-                <thead>
-                    <th>Código</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                </thead>
+          <h3>Tabla de artículos</h3>
+          <table>
+            <!-- Encabezado de columnas de la tabla -->
+            <thead>
+              <th><button>Código⮃</button></th>
+              <th>Descripción</th>
+              <th>Precio</th>
+            </thead>
 
-                <!-- Primera fila de la tabla -->
-                <tr>
-                    <td>A001</td>
-                    <td>Remera algodón básica</td>
-                    <td>$ 1000</td>
-                </tr>
+            <!-- Primera fila de la tabla -->
+            <tr>
+              <td>A001 ⭐</td>
+              <td>Remera algodón básica</td>
+              <td>$ 1000</td>
+            </tr>
 
-                <!-- Segunda fila de la tabla -->
-                 <tr>
-                    <td>A002</td>
-                    <td>Zapatillas deportivas</td>
-                    <td>$ 300</td>
-                </tr>
+            <!-- Segunda fila de la tabla -->
+            <tr>
+              <td>A002</td>
+              <td>Zapatillas deportivas</td>
+              <td>$ 300</td>
+            </tr>
 
-                <!-- Tercera fila de la tabla -->
-                <tr>
-                    <td>A003</td>
-                    <td>Gorra ajustable</td>
-                    <td>$ 500</td>
-                </tr>
-            </table>
+            <!-- Tercera fila de la tabla -->
+            <tr>
+              <td>A003</td>
+              <td>Gorra ajustable</td>
+              <td>$ 500</td>
+            </tr>
+          </table>
 
-            <p>Información: Artículo mas vendido (mayor cantidad de unidades vendidas)</p>
+          <p>
+            Información: ⭐ Artículo mas vendido (mayor cantidad de unidades
+            vendidas)
+          </p>
         </article>
-    </section>
+      </section>
 
-    <!-- Section de ventas -->
-    <section>
+      <!-- Section de ventas -->
+      <section>
         <h2>Ventas</h2>
-      <!-- Alta de Venta -->
+        <!-- Alta de Venta -->
         <article>
-        <h3>Alta de Venta</h3>
-        <button>Agregar Venta</button>
+          <h3>Alta de Venta</h3>
+          <button>Agregar Venta</button>
         </article>
 
-        <!-- Datos a agregar -->    
+        <!-- Datos a agregar -->
         <article>
-        <p>Datos de la venta a agregar</p>
-        <p>Venta</p>
+          <h3>Datos de la venta a agregar</h3>
+          <h4>Venta</h4>
 
-        <div>
-            <p>Nro: 3</p>
-            <label>Artículo</label>
-            <select>
+          <div class="inputcontainer">
+            <div>
+              <label>Nro: 3</label>
+              <label>Artículo</label>
+              <select>
                 <option>A001</option>
-            </select>
-        </div>
+              </select>
+            </div>
 
-        <div>
-            <label>Influencer</label>
-            <select>
+            <div>
+              <label>Influencer</label>
+              <select>
                 <option>Ana Pérez</option>
-            </select>
-        </div>
+              </select>
+            </div>
 
-        <div>
-            <label>Cantidad</label>
-            <input type="text">
-            <label>Medio</label>
-            <select name="medios" id="medios">
+            <div>
+              <label>Cantidad</label>
+              <input type="text" />
+              <label>Medio</label>
+              <select name="medios" id="medios">
                 <option>1-Instagram</option>
-            </select>
-            <button>Cancelar</button>
-            <button>Agregar</button>
-        </div>
+              </select>
+              <button>Cancelar</button>
+              <button>Agregar</button>
+            </div>
+          </div>
         </article>
 
-        <!-- Tabla de artículos -->
+        <!-- Tabla de ventas -->
         <article>
-            <table>
-                <!-- Encabezado de columnas de la tabla -->
-                 <thead>
-                    <th>Nro Venta</th>
-                    <th>Código de Artículo</th>
-                    <th>Nombre de influencer</th>
-                    <th>Cantidad</th>
-                    <th>Medio</th>
-                    <th>Acción</th>
-                </thead>
+          <table>
+            <h3>Tabla de ventas</h3>
+            <!-- Encabezado de columnas de la tabla -->
+            <thead>
+              <th>Nro Venta</th>
+              <th>Código de Artículo</th>
+              <th>Nombre de influencer</th>
+              <th>Cantidad</th>
+              <th>Medio</th>
+              <th>Acción</th>
+            </thead>
 
-                <!-- Primera fila de la tabla -->
-                <tr>
-                    <td>1</td>
-                    <td>A001</td>
-                    <td>Ana Pérez</td>
-                    <td>3</td>
-                    <td>1 - Instagram</td>
-                    <td><Button>Eliminar</Button></td>
-                </tr>
-            </table>
+            <!-- Primera fila de la tabla -->
+            <tr>
+              <td>1</td>
+              <td>A001</td>
+              <td>Ana Pérez</td>
+              <td>3</td>
+              <td>1 - Instagram</td>
+              <td><button>❌</button></td>
+            </tr>
 
-            <p>Información: Artículo mas vendido (mayor cantidad de unidades vendidas)</p>
+            <!-- Segunda fila de la tabla -->
+            <tr>
+              <td>2</td>
+              <td>A002</td>
+              <td>Juan Gómez</td>
+              <td>1</td>
+              <td>2 - Youtube</td>
+              <td><button>❌</button></td>
+            </tr>
+          </table>
         </article>
 
         <article><h2>Gráfico de burbujas</h2></article>
-    </section>
+      </section>
     </main>
 
     <footer>
-        <p>Mauricio Perez</p>
-        <p>Mariano Albornoz</p>
-
-        <p>Nro 378914</p>
-        <p>Nro 357964</p>
-
-        <a href="#">LinkedIn1</a>
-        <a href="#">LinkedIn2</a>
+      <a target="_blank" href="https://www.linkedin.com/in/mauricio-perez9918/"
+        >Mauricio Perez - Estudiante Nro: 378914</a
+      >
+      <br />
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/mariano-albornoz-2b0686247/"
+        >Mariano Albornoz - Estudiante Nro: 357964</a
+      >
     </footer>
   </body>
 </html>
