@@ -1,0 +1,51 @@
+body{
+    background-color: gray;
+   
+}
+
+section{
+    background-color: white;
+    width: 95%;
+    padding-top: 20px;
+    
+}
+
+article{
+    background-color: #F2F2F2;
+    border-radius: 6px;
+    width: 80%;
+    padding: 20px 30px;
+    margin:30px 0px;
+    margin-left: 50px;
+}
+
+h2{
+    margin-left: 50px;
+}
+
+table{
+    border:1px solid black;
+    border-collapse: collapse;
+}
+
+th{
+    border:1px solid black
+}
+
+td{
+    border:1px solid black
+}
+
+button{
+    color: white;
+    background-color:#31A5B5;
+    padding: 10px;
+    border-radius: 6px;
+    border:none;
+}
+
+.inputcontainer{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
