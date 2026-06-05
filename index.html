@@ -19,24 +19,26 @@
         <!-- Atla de influencer -->
         <article>
           <h3>Alta de influencer</h3>
-          <button>Agregar influencer</button>
+          <button command="show-modal" commandfor="modalInfluencers">Agregar influencer</button>
         </article>
 
         <!-- Datos a agregar -->
-        <article>
-          <h3>Datos del influencer a agregar</h3>
-          <h4>Influencer</h4>
+        <dialog id="modalInfluencers">
+          <article>
+            <h3>Datos del influencer a agregar</h3>
+            <h4>Influencer</h4>
 
-          <div class="inputcontainer">
-            <label>Nombre</label><input>
+            <div class="inputcontainer">
+              <label>Nombre</label><input>
 
-            <label>Mail</label><input>
+              <label>Mail</label><input>
 
-            <label>%Comisión</label><input type="text">
-            <button>Cancelar</button>
-            <button>Agregar</button>
-          </div>
-        </article>
+              <label>%Comisión</label><input type="text">
+              <button command="close" commandfor="modalInfluencers">Cancelar</button>
+              <button id="agregarInfluencer">Agregar</button>
+              </div>
+              </article>
+        </dialog>
 
         <!-- Tabla de influencers -->
         <article>
@@ -256,5 +258,8 @@
         >Mariano Albornoz - Estudiante Nro: 357964</a
       >
     </footer>
+    
+    <script src="./clases.js"></script>
+    <script src="./funciones.js"></script>
   </body>
 </html>

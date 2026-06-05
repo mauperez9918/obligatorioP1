@@ -49,6 +49,10 @@ button {
   margin: 3px;
 }
 
+button:hover{
+  cursor: pointer;
+}
+
 .inputcontainer {
   display: flex;
   justify-content: start;
