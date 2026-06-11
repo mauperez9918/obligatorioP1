@@ -29,11 +29,11 @@
             <h4>Influencer</h4>
 
             <div class="inputcontainer">
-              <label>Nombre</label><input>
+              <label>Nombre</label><input id="nombre">
 
-              <label>Mail</label><input>
+              <label>Mail</label><input id="mail">
 
-              <label>%Comisión</label><input type="text">
+              <label>%Comisión</label><input type="text" id="comision">
               <button command="close" commandfor="modalInfluencers">Cancelar</button>
               <button id="agregarInfluencer">Agregar</button>
               </div>
@@ -44,7 +44,7 @@
         <article>
           <h3>Tabla de influencers</h3>
 
-          <table>
+          <table id="tablaInfluencers">
             <!-- Encabezado de columnas de la tabla -->
             <thead>
               <tr>
@@ -56,36 +56,6 @@
                 <th>Detalle</th>
               </tr>
             </thead>
-
-            <!-- Primera fila de la tabla -->
-            <tr>
-              <td>Ana Perez</td>
-              <td>ana.perez@email.com</td>
-              <td>20%</td>
-              <td>$ 600</td>
-              <td>🔥🟢</td>
-              <td><button>Ventas</button></td>
-            </tr>
-
-            <!-- Segunda fila de la tabla -->
-            <tr>
-              <td>Juan Goméz</td>
-              <td>juan.gomez@email.com</td>
-              <td>10%</td>
-              <td>$ 30</td>
-              <td></td>
-              <td><button>Ventas</button></td>
-            </tr>
-
-            <!-- Tercera fila de la tabla -->
-            <tr>
-              <td>Lucia Martínez</td>
-              <td>lucia.martinez@email.com</td>
-              <td>95%</td>
-              <td>$ 0</td>
-              <td>🟦</td>
-              <td><button>Ventas</button></td>
-            </tr>
           </table>
 
           <p>
@@ -259,7 +229,7 @@
       >
     </footer>
     
-    <script src="./clases.js"></script>
-    <script src="./funciones.js"></script>
+    <script type="module" src="./clases.js"></script>
+    <script type="module" src="./funciones.js"></script>
   </body>
 </html>
