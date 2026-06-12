@@ -1,5 +1,6 @@
 
 // CLASE INFLUENCER
+
 export class Influencer {
 
     constructor(nombre, mail, comision) {
@@ -24,6 +25,7 @@ export class Influencer {
     };
 
 //CLASE ARTICULO
+
     export class Articulo {
 
         constructor(codigo, descripcion, precio){
@@ -42,3 +44,26 @@ export class Influencer {
 
     };
 
+    // CLASE VENTA
+
+    export class Venta {
+
+        constructor(numero, codigoArticulo, influencer, cantidad, medio){
+            this.numero = numero;
+            this.codigoArticulo = codigoArticulo;
+            this.influencer = influencer;
+            this.cantidad = cantidad;
+            this.medio = medio;
+        }
+
+        verVenta(){
+            return {
+             numero: this.numero,
+             codigoArticulo: this.codigoArticulo,
+             influencer: this.influencer,
+             cantidad: this.cantidad,
+             medio: this.medio
+            }
+        }
+
+    };

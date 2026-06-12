@@ -23,8 +23,7 @@
         </article>
 
         <!-- Datos a agregar -->
-        <dialog id="modalInfluencers">
-          <article>
+        <dialog id="modalInfluencers"> 
             <h3>Datos del influencer a agregar</h3>
             <h4>Influencer</h4>
 
@@ -37,7 +36,6 @@
               <button command="close" commandfor="modalInfluencers">Cancelar</button>
               <button id="agregarInfluencer">Agregar</button>
               </div>
-              </article>
         </dialog>
 
         <!-- Tabla de influencers -->
@@ -120,11 +118,11 @@
         <!-- Alta de Venta -->
         <article>
           <h3>Alta de Venta</h3>
-          <button>Agregar Venta</button>
+          <button command="show-modal" commandfor="modalVenta">Agregar Venta</button>
         </article>
 
+        <dialog id="modalVenta">
         <!-- Datos a agregar -->
-        <article>
           <h3>Datos de la venta a agregar</h3>
           <h4>Venta</h4>
 
@@ -132,15 +130,13 @@
             <div>
               <label>Nro: 3</label>
               <label>Artículo</label>
-              <select>
-                <option>A001</option>
+              <select id="listadoArticulos">
               </select>
             </div>
 
             <div>
               <label>Influencer</label>
               <select>
-                <option>Ana Pérez</option>
               </select>
             </div>
 
@@ -151,17 +147,18 @@
               <select name="medios" id="medios">
                 <option>1-Instagram</option>
               </select>
-              <button>Cancelar</button>
-              <button>Agregar</button>
+              <button command="close" commandfor="modalVenta">Cancelar</button>
+              <button id="agregarVenta">Agregar</button>
             </div>
           </div>
-        </article>
+        </dialog>
 
         <!-- Tabla de ventas -->
         <article>
 
           <h3>Tabla de ventas</h3>
-          <table>
+          <table id="tablaVentas">
+
             <!-- Encabezado de columnas de la tabla -->
             <thead>
               <tr>
@@ -174,25 +171,6 @@
               </tr>
             </thead>
 
-            <!-- Primera fila de la tabla -->
-            <tr>
-              <td>1</td>
-              <td>A001</td>
-              <td>Ana Pérez</td>
-              <td>3</td>
-              <td>1 - Instagram</td>
-              <td><button>❌</button></td>
-            </tr>
-
-            <!-- Segunda fila de la tabla -->
-            <tr>
-              <td>2</td>
-              <td>A002</td>
-              <td>Juan Gómez</td>
-              <td>1</td>
-              <td>2 - Youtube</td>
-              <td><button>❌</button></td>
-            </tr>
           </table>
         </article>
 

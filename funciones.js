@@ -1,5 +1,6 @@
 import { Influencer } from "./clases.js";
 import { Articulo } from "./clases.js";
+import { Venta } from "./clases.js";
 
 // TABLA DE INFLUENCERS
 const influencers = [];
@@ -16,6 +17,14 @@ const codigoArticulo = document.getElementById("codigoArticulo");
 const descripcionArticulo = document.getElementById("descripcionArticulo");
 const precioArticulo = document.getElementById("precioArticulo");
 const botonArticulo = document.getElementById("agregarArticulo");
+
+// TABLA DE VENTAS
+const ventas = [];
+const tablaVentas = document.getElementById("tablaVentas");
+const listadoArticulos = document.getElementById("listadoArticulos");
+const botonVenta = document.getElementById("agregarVenta");
+
+// FUNCIONES
 
 function mostrarInfluencers(){
     for(let influencer of influencers){
@@ -44,25 +53,62 @@ function mostrarArticulos(){
     }
 }
 
+function mostrarVentas(){
+    for(let venta of ventas){
+        tablaVentas.innerHTML +=`
+            <tr>
+              <td>${venta.numero}</td>
+              <td>${venta.codigo}</td>
+              <td>${venta.influencer}</td>
+              <td>${venta.cantidad}</td>
+              <td>${venta.medio}</td>
+            </tr>
+            `;
+    }
+}
 
-// BOTONES
+function listarArticulos() { 
+    for(let articulo of articulos){
+    listadoArticulos.innerHTML=`<option value="${articulo.codigo}">${articulo.codigo}</option>`;
+    }
+}
+
+// EVENTOS
+
 botonInfluencer.addEventListener("click", () => {
     let nuevoInfluencer = new Influencer(
         nombreInput.value,
         mailInput.value,
         comisionInput.value
     );
-    influencers.push(nuevoInfluencer)
+    influencers.push(nuevoInfluencer);
     mostrarInfluencers();
 }) 
 
-
 botonArticulo.addEventListener("click", () => {
-    let nuevoArticulo = new Articulo(
+    let nuevoArticulo = "";
+    console.log("Lo que vale antes ",nuevoArticulo);
+    nuevoArticulo = new Articulo(
         codigoArticulo.value,
         descripcionArticulo.value,
         precioArticulo.value
     );
-    articulos.push(nuevoArticulo)
+    console.log("Lo que vale antes despues ", nuevoArticulo);
+    
+    articulos.push(nuevoArticulo);
     mostrarArticulos();
+    listarArticulos();
 })
+
+botonVenta.addEventListener("click", () => {
+       let nuevaVenta = new Venta(
+        codigoArticulo.value,
+        descripcionArticulo.value,
+        precioArticulo.value
+    );
+    ventas.push(nuevaVenta);
+    mostrarVentas();
+})
+
+
+
