@@ -71,28 +71,30 @@
         <!-- Alta de Artículo -->
         <article>
           <h3>Alta de Artículo</h3>
-          <button>Agregar Artículo</button>
+          <button command="show-modal" commandfor="modalArticulo">Agregar Artículo</button>
         </article>
-
-        <!-- Datos a agregar -->
-        <article>
+        <dialog id="modalArticulo">
+          <!-- Datos a agregar -->
+         <article>
           <h3>Datos del artículo a agregar</h3>
           <h4>Artículo</h4>
-
           <div class="inputcontainer">
-            <div><label>Código</label><input></div>
-            <div><label>Descripción</label><input></div>
+            <div><label>Código</label><input type="text" id="codigoArticulo"></div>
+            <div><label>Descripción</label><input type="text" id="descripcionArticulo"></div>
             <div>
-              <label>Precio</label><input type="text"><button>Cancelar</button
-              ><button>Agregar</button>
+              <label>Precio</label><input type="number" id="precioArticulo">
+              <button command="close" commandfor="modalArticulo">Cancelar</button>
+              <button id="agregarArticulo">Agregar</button>
             </div>
           </div>
         </article>
 
+        </dialog>
+
         <!-- Tabla de artículos -->
         <article>
           <h3>Tabla de artículos</h3>
-          <table>
+          <table id="tablaArticulos">
             <!-- Encabezado de columnas de la tabla -->
             <thead>
               <tr> 
@@ -101,28 +103,6 @@
                 <th>Precio</th>
               </tr>
             </thead>
-
-            <!-- Primera fila de la tabla -->
-            <tr>
-              <td>A001 ⭐</td>
-              <td>Remera algodón básica</td>
-              <td>$ 1000</td>
-            </tr>
-
-            <!-- Segunda fila de la tabla -->
-            <tr>
-              <td>A002</td>
-              <td>Zapatillas deportivas</td>
-              <td>$ 300</td>
-            </tr>
-
-            <!-- Tercera fila de la tabla -->
-            <tr>
-              <td>A003</td>
-              <td>Gorra ajustable</td>
-              <td>$ 500</td>
-            </tr>
-          </table>
 
           <p>
             Información: ⭐ Artículo mas vendido (mayor cantidad de unidades

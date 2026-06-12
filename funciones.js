@@ -1,10 +1,20 @@
 import { Influencer } from "./clases.js";
+import { Articulo } from "./clases.js";
+
+// TABLA DE INFLUENCERS
 const influencers = [];
 const tablaInfluencers = document.getElementById("tablaInfluencers");
-const botonAgregar = document.getElementById("agregarInfluencer");
+const botonInfluencer = document.getElementById("agregarInfluencer");
 const nombreInput = document.getElementById("nombre");
 const mailInput = document.getElementById("mail");
 const comisionInput = document.getElementById("comision");
+
+// TABLA DE ARTICULOS
+const articulos = [];
+const codigoArticulo = document.getElementById("codigoArticulo");
+const descripcionArticulo = document.getElementById("descripcionArticulo");
+const precioArticulo = document.getElementById("precioArticulo");
+const botonArticulo = document.getElementById("agregarArticulo");
 
 function mostrarInfluencers(){
     for(let influencer of influencers){
@@ -25,7 +35,9 @@ function mostrarInfluencers(){
     
 }
 
-botonAgregar.addEventListener("click", () => {
+
+// BOTONES
+botonInfluencer.addEventListener("click", () => {
     let nuevoInfluencer = new Influencer(
         nombreInput.value,
         mailInput.value,
@@ -36,3 +48,12 @@ botonAgregar.addEventListener("click", () => {
 }) 
 
 
+botonArticulo.addEventListener("click", () => {
+    let nuevoArticulo = new Articulo(
+        codigoArticulo.value,
+        descripcionArticulo.value,
+        precioArticulo.value
+    );
+    articulos.push(nuevoArticulo)
+    mostrarArticulo();
+})

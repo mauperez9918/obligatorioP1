@@ -1,4 +1,7 @@
+
+// CLASE INFLUENCER
 export class Influencer {
+
     constructor(nombre, mail, comision) {
     this.nombre = nombre;
     this.mail = mail;
@@ -20,5 +23,22 @@ export class Influencer {
     }
     };
 
+//CLASE ARTICULO
+    export class Articulo {
 
+        constructor(codigo, descripcion, precio){
+            codigo = this.codigo;
+            descripcion = this.descripcion;
+            precio = this.precio;
+        }
+
+        verArticulo(){
+            return {
+                codigo: this.codigo,
+                descripcion: this.descripcion,
+                precio: this.precio,
+            }
+        }
+
+    };
 
