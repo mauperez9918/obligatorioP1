@@ -67,17 +67,20 @@
 
       <!-- Section para manejo de artículos -->
       <section>
+
         <h2>Manejo de Artículos</h2>
+
         <!-- Alta de Artículo -->
         <article>
           <h3>Alta de Artículo</h3>
           <button command="show-modal" commandfor="modalArticulo">Agregar Artículo</button>
         </article>
+
         <dialog id="modalArticulo">
           <!-- Datos a agregar -->
-         <article>
           <h3>Datos del artículo a agregar</h3>
           <h4>Artículo</h4>
+
           <div class="inputcontainer">
             <div><label>Código</label><input type="text" id="codigoArticulo"></div>
             <div><label>Descripción</label><input type="text" id="descripcionArticulo"></div>
@@ -87,7 +90,6 @@
               <button id="agregarArticulo">Agregar</button>
             </div>
           </div>
-        </article>
 
         </dialog>
 
@@ -103,6 +105,7 @@
                 <th>Precio</th>
               </tr>
             </thead>
+          </table>
 
           <p>
             Información: ⭐ Artículo mas vendido (mayor cantidad de unidades

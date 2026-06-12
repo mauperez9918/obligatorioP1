@@ -21,6 +21,10 @@ article {
   margin-left: 90px;
 }
 
+dialog {
+border-radius: 6px;
+}
+
 h2 {
   margin-left: 50px;
 }

@@ -27,9 +27,9 @@ export class Influencer {
     export class Articulo {
 
         constructor(codigo, descripcion, precio){
-            codigo = this.codigo;
-            descripcion = this.descripcion;
-            precio = this.precio;
+            this.codigo = codigo;
+            this.descripcion = descripcion;
+            this.precio = precio;
         }
 
         verArticulo(){

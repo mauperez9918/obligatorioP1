@@ -11,6 +11,7 @@ const comisionInput = document.getElementById("comision");
 
 // TABLA DE ARTICULOS
 const articulos = [];
+const tablaArticulos = document.getElementById("tablaArticulos");
 const codigoArticulo = document.getElementById("codigoArticulo");
 const descripcionArticulo = document.getElementById("descripcionArticulo");
 const precioArticulo = document.getElementById("precioArticulo");
@@ -18,21 +19,29 @@ const botonArticulo = document.getElementById("agregarArticulo");
 
 function mostrarInfluencers(){
     for(let influencer of influencers){
-        console.log(influencer);
-        
-        tablaInfluencers.innerHTML += `
-             <tr>
+        tablaInfluencers.innerHTML +=`
+            <tr>
               <td>${influencer.nombre}</td>
               <td>${influencer.mail}</td>
               <td>${influencer.comision}</td>
               <td>${influencer.total}</td>
               <td>${influencer.etiqueta}</td>
               <td>${influencer.detalle}</td>
-
             </tr>
             `;
     }
-    
+}
+
+function mostrarArticulos(){
+    for(let articulo of articulos){
+        tablaArticulos.innerHTML +=`
+            <tr>
+              <td>${articulo.codigo}</td>
+              <td>${articulo.descripcion}</td>
+              <td>${articulo.precio}</td>
+            </tr>
+            `;
+    }
 }
 
 
@@ -55,5 +64,5 @@ botonArticulo.addEventListener("click", () => {
         precioArticulo.value
     );
     articulos.push(nuevoArticulo)
-    mostrarArticulo();
+    mostrarArticulos();
 })
