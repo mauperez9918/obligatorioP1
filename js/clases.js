@@ -1,4 +1,11 @@
 
+// Hacer clase sistema
+
+
+
+
+
+
 // CLASE INFLUENCER
 
 export class Influencer {

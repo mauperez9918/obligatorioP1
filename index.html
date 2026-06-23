@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="./css/estilos.css">
     <title>Sistema de Gestión (Perez-Albornoz)</title>
   </head>
+  
   <body>
+
+    <header><h1>Sistema de Gestión (Perez-Albornoz)</h1></header>
+
     <main>
-      <h1>Sistema de Gestión (Perez-Albornoz)</h1>
+      
       <!-- Section para manejo de influencers -->
       <section>
         <!-- Título de section -->
@@ -27,15 +31,15 @@
             <h3>Datos del influencer a agregar</h3>
             <h4>Influencer</h4>
 
-            <div class="inputcontainer">
+            <form class="inputcontainer">
               <label>Nombre</label><input id="nombre">
 
               <label>Mail</label><input id="mail">
 
-              <label>%Comisión</label><input type="text" id="comision">
+              <label>%Comisión</label><input required type="text" id="comision">
               <button command="close" commandfor="modalInfluencers">Cancelar</button>
               <button id="agregarInfluencer">Agregar</button>
-              </div>
+            </form>
         </dialog>
 
         <!-- Tabla de influencers -->
