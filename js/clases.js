@@ -1,7 +1,25 @@
+// CLASE SISTEMA
 
-// Hacer clase sistema
+export class Sistema {
 
+    constructor(listaInfluencers,listaArticulos,listaVentas){
+    this.listaInfluencers = [];
+    this.listaArticulos = [];
+    this.listaVentas = []; 
+    }
 
+    agregarInfluencer(influencer){
+    this.listaInfluencers.push(influencer);
+    }
+
+    agregarArticulo(articulo){
+    this.listaArticulos.push(articulo);
+    }
+
+    agregarVenta(venta){
+     this.listaVentas.push(venta);   
+    }
+}
 
 
 

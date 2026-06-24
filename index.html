@@ -42,10 +42,10 @@
             </form>
         </dialog>
 
-        <!-- Tabla de influencers -->
+      
         <article>
           <h3>Tabla de influencers</h3>
-
+          <!-- Tabla influencers -->
           <table>
             <!-- Encabezado de columnas de la tabla -->
             <thead>
@@ -58,8 +58,7 @@
                 <th>Detalle</th>
               </tr>
             </thead>
-            <tbody id="tablaInfluencers">
-            </tbody>
+            <tbody id="tablaInfluencers"></tbody>
           </table>
 
           <p>
@@ -110,8 +109,7 @@
                 <th>Precio</th>
               </tr>
             </thead>
-            <tbody id="tablaArticulos">
-            </tbody>
+            <tbody id="tablaArticulos"></tbody>
           </table>
 
           <p>
@@ -135,20 +133,15 @@
           <h3>Datos de la venta a agregar</h3>
           <h4>Venta</h4>
 
-    
+          <!-- Formulario agregar ARTÍCULO -->
           <form class="inputcontainer">
-            <div>
+       
               <label>Nro: 3</label>
               <label>Artículo</label>
-              <select id="listadoArticulos">
-              </select>
-            </div>
-
-            <div>
+      
               <label>Influencer</label>
               <select>
               </select>
-            </div>
 
           
             <label>Cantidad</label>
@@ -159,9 +152,9 @@
             <option>1-Instagram</option>
             </select>
 
-            <button command="close" commandfor="modalVenta">Cancelar</button>
+            <button type="button" command="close" commandfor="modalVenta">Cancelar</button>
 
-            <button id="agregarVenta">Agregar</button>
+            <button type="button" id="agregarVenta">Agregar</button>
           </form>
       
         </dialog>

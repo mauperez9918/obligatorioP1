@@ -30,6 +30,7 @@ const botonVenta = document.getElementById("agregarVenta");
 
 // FUNCIONES
 
+// Funcion Listar INFLUENCERS //
 function mostrarInfluencers(){
     tablaInfluencers.innerHTML = "";
     for(let influencer of influencers){
@@ -46,6 +47,7 @@ function mostrarInfluencers(){
     }
 }
 
+// Funcion Listar ARTÍCULOS //
 function mostrarArticulos(){
     tablaArticulos.innerHTML = "";
     for(let articulo of articulos){
@@ -59,6 +61,7 @@ function mostrarArticulos(){
     }
 }
 
+// Funcion Listar VENTAS //
 function mostrarVentas(){
     for(let venta of ventas){
         tablaVentas.innerHTML +=`
@@ -73,13 +76,16 @@ function mostrarVentas(){
     }
 }
 
+
 function listarArticulos() { 
+    console.log("hola");
+    
     for(let articulo of articulos){
     listadoArticulos.innerHTML=`<option value="${articulo.codigo}">${articulo.codigo}</option>`;
     }
 }
 
-// EVENTOS
+// EVENTOS ////
 
 // EVENTO AGREGAR INFLUENCER //
 botonInfluencer.addEventListener("click", (event) => {
@@ -104,10 +110,9 @@ let ascendente = true;
 ordenarInfluencers.addEventListener("click", () => {
 
     if(ascendente){
-
-        influencers.sort((a,b) =>
+        influencers.sort((influencerAnterior, influencerPosterior) => {
             a.nombre.localeCompare(b.nombre)
-        );
+        })
 
     }else{
 
@@ -120,7 +125,6 @@ ordenarInfluencers.addEventListener("click", () => {
     ascendente = !ascendente;
 
     mostrarInfluencers();
-
 });
 
 // EVENTO AGREGAR ARTICULO //
@@ -139,7 +143,6 @@ botonArticulo.addEventListener("click", (event) => {
     
     articulos.push(nuevoArticulo);
     mostrarArticulos();
-    listarArticulos();
 
     modalArticulo.close();
 })
