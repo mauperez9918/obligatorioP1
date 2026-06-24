@@ -9,6 +9,8 @@ const botonInfluencer = document.getElementById("agregarInfluencer");
 const nombreInput = document.getElementById("nombre");
 const mailInput = document.getElementById("mail");
 const comisionInput = document.getElementById("comision");
+const modal = document.getElementById("modalInfluencers");
+const botonOrdenar = document.getElementById("ordenarNombre");
 
 // TABLA DE ARTICULOS
 const articulos = [];
@@ -17,6 +19,8 @@ const codigoArticulo = document.getElementById("codigoArticulo");
 const descripcionArticulo = document.getElementById("descripcionArticulo");
 const precioArticulo = document.getElementById("precioArticulo");
 const botonArticulo = document.getElementById("agregarArticulo");
+const modal = document.getElementById("modalArticulo");
+const botonOrdenar = document.getElementById("ordenarTabla");
 
 // TABLA DE VENTAS
 const ventas = [];
@@ -27,6 +31,7 @@ const botonVenta = document.getElementById("agregarVenta");
 // FUNCIONES
 
 function mostrarInfluencers(){
+    tablaInfluencers.innerHTML = "";
     for(let influencer of influencers){
         tablaInfluencers.innerHTML +=`
             <tr>
@@ -42,6 +47,7 @@ function mostrarInfluencers(){
 }
 
 function mostrarArticulos(){
+    tablaArticulos.innerHTML = "";
     for(let articulo of articulos){
         tablaArticulos.innerHTML +=`
             <tr>
@@ -75,17 +81,47 @@ function listarArticulos() {
 
 // EVENTOS
 
-botonInfluencer.addEventListener("click", () => {
-    let nuevoInfluencer = new Influencer(
+botonInfluencer.addEventListener("click", (event) => {
+
+        event.preventDefault();
+        let nuevoInfluencer = new Influencer(
         nombreInput.value,
         mailInput.value,
         comisionInput.value
     );
     influencers.push(nuevoInfluencer);
     mostrarInfluencers();
+    
+    modal.close();
 }) 
 
-botonArticulo.addEventListener("click", () => {
+let ascendente = true;
+
+botonOrdenar.addEventListener("click", () => {
+
+    if(ascendente){
+
+        influencers.sort((a,b) =>
+            a.nombre.localeCompare(b.nombre)
+        );
+
+    }else{
+
+        influencers.sort((a,b) =>
+            b.nombre.localeCompare(a.nombre)
+        );
+
+    }
+
+    ascendente = !ascendente;
+
+    mostrarInfluencers();
+
+});
+
+botonArticulo.addEventListener("click", (event) => {
+
+    event.preventDefault();
     let nuevoArticulo = "";
     console.log("Lo que vale antes ",nuevoArticulo);
     nuevoArticulo = new Articulo(
@@ -98,6 +134,8 @@ botonArticulo.addEventListener("click", () => {
     articulos.push(nuevoArticulo);
     mostrarArticulos();
     listarArticulos();
+
+    modal.close();
 })
 
 botonVenta.addEventListener("click", () => {
