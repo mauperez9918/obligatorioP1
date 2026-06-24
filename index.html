@@ -32,9 +32,9 @@
             <h4>Influencer</h4>
 
             <form class="inputcontainer">
-              <label>Nombre</label><input id="nombre">
+              <label>Nombre</label><input required id="nombre">
 
-              <label>Mail</label><input id="mail">
+              <label>Mail</label><input required id="mail">
 
               <label>%Comisión</label><input required type="number" id="comision">
               <button command="close" commandfor="modalInfluencers">Cancelar</button>
@@ -86,11 +86,15 @@
           <h4>Artículo</h4>
 
           <form class="inputcontainer">
-            <label>Código</label><input id="codigoArticulo">
-            <label>Descripción</label><input id="descripcionArticulo">
-              <label>Precio</label><input required type="number" id="precioArticulo">
-              <button command="close" commandfor="modalArticulo">Cancelar</button>
-              <button type ="button" id="agregarArticulo">Agregar</button>
+            <label>Código</label><input required id="codigoArticulo">
+
+            <label>Descripción</label><input required id="descripcionArticulo">
+
+            <label>Precio</label><input required type="number" id="precioArticulo">
+
+            <button command="close" commandfor="modalArticulo">Cancelar</button>
+
+            <button type ="button" id="agregarArticulo">Agregar</button>
           </form>
         </dialog>
 
@@ -131,7 +135,8 @@
           <h3>Datos de la venta a agregar</h3>
           <h4>Venta</h4>
 
-          <div class="inputcontainer">
+    
+          <form class="inputcontainer">
             <div>
               <label>Nro: 3</label>
               <label>Artículo</label>
@@ -145,17 +150,20 @@
               </select>
             </div>
 
-            <div>
-              <label>Cantidad</label>
-              <input type="text">
-              <label>Medio</label>
-              <select name="medios" id="medios">
-                <option>1-Instagram</option>
-              </select>
-              <button command="close" commandfor="modalVenta">Cancelar</button>
-              <button id="agregarVenta">Agregar</button>
-            </div>
-          </div>
+          
+            <label>Cantidad</label>
+            <input required type="text">
+
+            <label>Medio</label>
+            <select name="medios" id="medios">
+            <option>1-Instagram</option>
+            </select>
+
+            <button command="close" commandfor="modalVenta">Cancelar</button>
+            
+            <button id="agregarVenta">Agregar</button>
+          </form>
+      
         </dialog>
 
         <!-- Tabla de ventas -->
