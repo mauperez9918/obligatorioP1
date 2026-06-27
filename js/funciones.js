@@ -21,6 +21,7 @@ const precioArticulo = document.getElementById("precioArticulo");
 const formArticulo = document.getElementById("formArticulo");
 const modalArticulo = document.getElementById("modalArticulo");
 const ordenarArticulos = document.getElementById("ordenarTabla");
+let ascendente = true;
 
 // TABLA DE VENTAS
 const ventas = [];
@@ -104,18 +105,17 @@ formInfluencer.addEventListener("submit", (event) => {
 // ORDENAR INFLUENCERS //
 
 ordenarInfluencers.addEventListener("click", () => {
-    var ascendente = true;
 
     if(ascendente){
         influencers.sort((influencerAnterior, influencerPosterior) => {
-            influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
+           return influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
         })
 
     }else{
-        influencers.sort((influencerAnterior,influencerPosterior) =>
-            influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
+        influencers.sort((influencerAnterior,influencerPosterior) => {
+          return influencerPosterior.nombre.localeCompare(influencerAnterior.nombre)
+        }
         );
-
     }
 
     ascendente = !ascendente;
@@ -144,25 +144,25 @@ formArticulo.addEventListener("submit", (event) => {
 })
 
 // ORDENAR ARTÍCULOS //
-// ordenarArticulos.addEventListener("click", () => {
-//     var ascendente = true;
+ordenarArticulos.addEventListener("click", () => {
+    var ascendente = true;
 
-//     if(ascendente){
-//         influencers.sort((influencerAnterior, influencerPosterior) => {
-//             influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
-//         })
+    if(ascendente){
+        influencers.sort((influencerAnterior, influencerPosterior) => {
+            influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
+        })
 
-//     }else{
-//         influencers.sort((influencerAnterior,influencerPosterior) =>
-//             influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
-//         );
+    }else{
+        influencers.sort((influencerAnterior,influencerPosterior) =>
+            influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
+        );
 
-//     }
+    }
 
-//     ascendente = !ascendente;
+    ascendente = !ascendente;
 
-//     mostrarInfluencers();
-// });
+    mostrarInfluencers();
+});
 
 // EVENTOS VENTAS //
 
