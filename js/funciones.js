@@ -5,7 +5,7 @@ import { Venta } from "./clases.js";
 // TABLA DE INFLUENCERS
 const influencers = [];
 const tablaInfluencers = document.getElementById("tablaInfluencers");
-const botonInfluencer = document.getElementById("agregarInfluencer");
+const formInfluencer = document.getElementById("formInfluencer");
 const nombreInput = document.getElementById("nombre");
 const mailInput = document.getElementById("mail");
 const comisionInput = document.getElementById("comision");
@@ -18,7 +18,7 @@ const tablaArticulos = document.getElementById("tablaArticulos");
 const codigoArticulo = document.getElementById("codigoArticulo");
 const descripcionArticulo = document.getElementById("descripcionArticulo");
 const precioArticulo = document.getElementById("precioArticulo");
-const botonArticulo = document.getElementById("agregarArticulo");
+const formArticulo = document.getElementById("formArticulo");
 const modalArticulo = document.getElementById("modalArticulo");
 const ordenarArticulos = document.getElementById("ordenarTabla");
 
@@ -78,18 +78,16 @@ function mostrarVentas(){
 
 
 function listarArticulos() { 
-    console.log("hola");
     
     for(let articulo of articulos){
     listadoArticulos.innerHTML=`<option value="${articulo.codigo}">${articulo.codigo}</option>`;
     }
 }
 
-// EVENTOS ////
+// EVENTOS INFLUENCERS////
 
-// EVENTO AGREGAR INFLUENCER //
-botonInfluencer.addEventListener("click", (event) => {
-
+// AGREGAR INFLUENCER //
+formInfluencer.addEventListener("submit", (event) => {
         event.preventDefault();
         let nuevoInfluencer = new Influencer(
         nombreInput.value,
@@ -99,25 +97,23 @@ botonInfluencer.addEventListener("click", (event) => {
     influencers.push(nuevoInfluencer);
     mostrarInfluencers();
     
+    formInfluencer.reset();
     modalInfluencers.close();
 }) 
 
-
-// EVENTO Ordenar inlfuencer ASC/DESC //
-
-let ascendente = true;
+// ORDENAR INFLUENCERS //
 
 ordenarInfluencers.addEventListener("click", () => {
+    var ascendente = true;
 
     if(ascendente){
         influencers.sort((influencerAnterior, influencerPosterior) => {
-            a.nombre.localeCompare(b.nombre)
+            influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
         })
 
     }else{
-
-        influencers.sort((a,b) =>
-            b.nombre.localeCompare(a.nombre)
+        influencers.sort((influencerAnterior,influencerPosterior) =>
+            influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
         );
 
     }
@@ -127,27 +123,48 @@ ordenarInfluencers.addEventListener("click", () => {
     mostrarInfluencers();
 });
 
-// EVENTO AGREGAR ARTICULO //
+// EVENTOS ARTÍCULOS ////
 
-botonArticulo.addEventListener("click", (event) => {
+// AGREGAR ARTÍCULO //
+formArticulo.addEventListener("submit", (event) => {
 
     event.preventDefault();
     let nuevoArticulo = "";
-    console.log("Lo que vale antes ",nuevoArticulo);
     nuevoArticulo = new Articulo(
         codigoArticulo.value,
         descripcionArticulo.value,
         precioArticulo.value
     );
-    console.log("Lo que vale antes despues ", nuevoArticulo);
     
     articulos.push(nuevoArticulo);
     mostrarArticulos();
 
+    formArticulo.reset();
     modalArticulo.close();
 })
 
-// EVENTO AGREGAR VENTA //
+// ORDENAR ARTÍCULOS //
+// ordenarArticulos.addEventListener("click", () => {
+//     var ascendente = true;
+
+//     if(ascendente){
+//         influencers.sort((influencerAnterior, influencerPosterior) => {
+//             influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
+//         })
+
+//     }else{
+//         influencers.sort((influencerAnterior,influencerPosterior) =>
+//             influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
+//         );
+
+//     }
+
+//     ascendente = !ascendente;
+
+//     mostrarInfluencers();
+// });
+
+// EVENTOS VENTAS //
 
 botonVenta.addEventListener("click", () => {
        let nuevaVenta = new Venta(

@@ -23,7 +23,6 @@ export class Sistema {
 
 
 
-
 // CLASE INFLUENCER
 
 export class Influencer {

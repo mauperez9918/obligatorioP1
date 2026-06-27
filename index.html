@@ -31,14 +31,16 @@
             <h3>Datos del influencer a agregar</h3>
             <h4>Influencer</h4>
 
-            <form class="inputcontainer">
-              <label>Nombre</label><input required id="nombre">
+            <!-- Formulario agregar influencer -->
+            <form id="formInfluencer" class="inputcontainer">
 
-              <label>Mail</label><input required id="mail">
+              <label>Nombre</label><input required type="text" id="nombre">
+
+              <label>Mail</label><input required type="email" id="mail">
 
               <label>%Comisión</label><input required type="number" id="comision">
               <button type="button" command="close" commandfor="modalInfluencers">Cancelar</button>
-              <button type="button" id="agregarInfluencer">Agregar</button>
+              <button type="submit">Agregar</button>
             </form>
         </dialog>
 
@@ -50,7 +52,7 @@
             <!-- Encabezado de columnas de la tabla -->
             <thead>
               <tr>
-                <th><button type ="button" id="ordenarNombre">Nombre ⮃</button></th>
+                <th><button type="button" id="ordenarNombre">Nombre ⮃</button></th>
                 <th>Email</th>
                 <th>%Comisión</th>
                 <th>Total a cobrar</th>
@@ -84,16 +86,16 @@
           <h3>Datos del artículo a agregar</h3>
           <h4>Artículo</h4>
 
-          <form class="inputcontainer">
-            <label>Código</label><input required id="codigoArticulo">
+          <form id="formArticulo" class="inputcontainer">
+            <label>Código</label><input required type="text" maxlength="3" id="codigoArticulo">
 
-            <label>Descripción</label><input required id="descripcionArticulo">
+            <label>Descripción</label><input required type="text" id="descripcionArticulo">
 
             <label>Precio</label><input required type="number" id="precioArticulo">
 
             <button type="button" command="close" commandfor="modalArticulo">Cancelar</button>
 
-            <button type ="button" id="agregarArticulo">Agregar</button>
+            <button type="submit">Agregar</button>
           </form>
         </dialog>
 
