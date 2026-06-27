@@ -145,23 +145,23 @@ formArticulo.addEventListener("submit", (event) => {
 
 // ORDENAR ARTÍCULOS //
 ordenarArticulos.addEventListener("click", () => {
-    var ascendente = true;
 
     if(ascendente){
-        influencers.sort((influencerAnterior, influencerPosterior) => {
-            influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
+        articulos.sort((articuloAnterior, articuloPosterior) => {
+            return articuloAnterior.codigo.localeCompare(articuloPosterior.codigo)
         })
 
     }else{
-        influencers.sort((influencerAnterior,influencerPosterior) =>
-            influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
-        );
+        articulos.sort((articuloAnterior,articuloPosterior) => {
+            return articuloPosterior.codigo.localeCompare(articuloAnterior.codigo)
+    }
+    );
 
     }
 
     ascendente = !ascendente;
 
-    mostrarInfluencers();
+    mostrarArticulos();
 });
 
 // EVENTOS VENTAS //
