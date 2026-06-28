@@ -64,7 +64,7 @@ function mostrarInfluencers(){
         var contenido = "";
         for(let venta of influencer.detalle){
           
-            contenido += ("Venta " + venta.numero + "  Art: " + venta.codigoArticulo + "  Cant: " + venta.cantidad + "  Medio: " + venta.medio);
+            contenido += ("Venta " + venta.numero + "  Art: " + venta.codigoArticulo + "  Cant: " + venta.cantidad + "  Medio: " + venta.medio + "\n");
         }
         alert(contenido);
     });
