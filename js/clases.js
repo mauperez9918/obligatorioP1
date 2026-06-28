@@ -44,7 +44,7 @@ export class Sistema {
 
     }
 
-    return (influencer.comision / totalVenta) * totalVenta;
+    return (influencer.comision * totalVenta) / 100;
     }
 }
 
