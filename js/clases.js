@@ -22,6 +22,10 @@ export class Sistema {
      this.listaVentas.push(venta);   
     }
 
+    borrarVenta(nombreInfluencer, venta){
+     this.listaVentas.splice(venta, 1);
+    }
+
     agregarVentaDetalle(nombreInfluencer, nuevaVenta) {
      for (let influencer of this.listaInfluencers){
         if (influencer.nombre == nombreInfluencer) {
@@ -29,12 +33,24 @@ export class Sistema {
         }
      }
     }
+
+    calcularComisionPorVenta(influencer, venta) {
+
+    for (let articulo of this.listaArticulos){
+
+    if(articulo.codigo == venta.codigoArticulo){
+    var totalVenta = articulo.precio * venta.cantidad;
+    }
+
+    }
+
+    return (influencer.comision / totalVenta) * totalVenta;
+    }
 }
 
 
 
 // CLASE INFLUENCER
-
 export class Influencer {
 
     constructor(nombre, mail, comision) {
