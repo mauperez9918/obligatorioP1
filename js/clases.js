@@ -24,7 +24,7 @@ export class Sistema {
 
     agregarVentaDetalle(nombreInfluencer, nuevaVenta) {
      for (let influencer of this.listaInfluencers){
-        if (influencer.nombre = nombreInfluencer) {
+        if (influencer.nombre == nombreInfluencer) {
             influencer.detalle.push(nuevaVenta);
         }
      }

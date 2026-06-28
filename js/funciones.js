@@ -61,8 +61,9 @@ function mostrarInfluencers(){
 
     for(let influencer of sistema.listaInfluencers){
     document.getElementById(influencer.nombre).addEventListener("click", () => {
+        var contenido = "";
         for(let venta of influencer.detalle){
-            var contenido;
+          
             contenido += ("Venta " + venta.numero + "  Art: " + venta.codigoArticulo + "  Cant: " + venta.cantidad + "  Medio: " + venta.medio);
         }
         alert(contenido);
@@ -211,6 +212,7 @@ formVenta.addEventListener("submit", (event) => {
     numeroVenta++;
     labelNumeroVenta.textContent = "Nro: " + numeroVenta;
     sistema.agregarVenta(nuevaVenta);    
+    
     sistema.agregarVentaDetalle(influencer, nuevaVenta);
     mostrarVentas();
     modalVenta.close();
