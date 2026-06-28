@@ -35,7 +35,7 @@ export class Influencer {
     this.comision = comision;  
     this.total = 0;
     this.etiqueta = "SIN ETIQUETA";
-    this.detalle = "SIN VENTAS";
+    this.detalle = [];
     }
 
     };

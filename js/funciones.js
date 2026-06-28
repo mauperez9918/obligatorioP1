@@ -3,9 +3,13 @@
 import { Influencer } from "./clases.js";
 import { Articulo } from "./clases.js";
 import { Venta } from "./clases.js";
+import { Sistema } from "./clases.js";
+
+// SISTEMAS
+const sistema = new Sistema();
+
 
 // INFLUENCERS
-const influencers = [];
 const tablaInfluencers = document.getElementById("tablaInfluencers");
 const formInfluencer = document.getElementById("formInfluencer");
 const nombreInput = document.getElementById("nombre");
@@ -13,9 +17,9 @@ const mailInput = document.getElementById("mail");
 const comisionInput = document.getElementById("comision");
 const modalInfluencers = document.getElementById("modalInfluencers");
 const ordenarInfluencers = document.getElementById("ordenarNombre");
+const botonDetalle = document.getElementById("botonDetalle");
 
 // ARTÍCULOS
-const articulos = [];
 const tablaArticulos = document.getElementById("tablaArticulos");
 const formArticulo = document.getElementById("formArticulo");
 const codigoArticuloInput = document.getElementById("codigoArticulo");
@@ -26,7 +30,6 @@ const ordenarArticulos = document.getElementById("ordenarTabla");
 let ascendente = true;
 
 // VENTAS
-const ventas = [];
 const tablaVentas = document.getElementById("tablaVentas");
 const formVenta = document.getElementById("formVenta");
 const desplegableArticulos = document.getElementById("desplegableArticulos");
@@ -43,7 +46,7 @@ let numeroVenta = 1;
 // Funcion Listar INFLUENCERS //
 function mostrarInfluencers(){
     tablaInfluencers.innerHTML = "";
-    for(let influencer of influencers){
+    for(let influencer of sistema.listaInfluencers){
         tablaInfluencers.innerHTML +=`
             <tr>
               <td>${influencer.nombre}</td>
@@ -51,7 +54,7 @@ function mostrarInfluencers(){
               <td>${influencer.comision}</td>
               <td>${influencer.total}</td>
               <td>${influencer.etiqueta}</td>
-              <td>${influencer.detalle}</td>
+              <td><button id="botonDetalle">VENTAS</button></td>            
             </tr>
             `;
     }
@@ -60,7 +63,7 @@ function mostrarInfluencers(){
 // Funcion Listar ARTÍCULOS //
 function mostrarArticulos(){
     tablaArticulos.innerHTML = "";
-    for(let articulo of articulos){
+    for(let articulo of sistema.listaArticulos){
         tablaArticulos.innerHTML +=`
             <tr>
               <td>${articulo.codigo}</td>
@@ -74,7 +77,7 @@ function mostrarArticulos(){
 // Funcion Listar VENTAS //
 function mostrarVentas(){
     tablaVentas.innerHTML = "";
-    for(let venta of ventas){
+    for(let venta of sistema.listaVentas){
         tablaVentas.innerHTML +=`
             <tr>
               <td>${venta.numero}</td>
@@ -93,11 +96,11 @@ function actualizarDesplegables() {
     desplegableInfluencers.innerHTML ="";
     desplegableArticulos.innerHTML ="";
 
-    for(let influencer of influencers){
+    for(let influencer of sistema.listaInfluencers){
     desplegableInfluencers.innerHTML +=`<option value="${influencer.nombre}">${influencer.nombre}</option>`;
     }
 
-    for(let articulo of articulos){
+    for(let articulo of sistema.listaArticulos){
     desplegableArticulos.innerHTML +=`<option value="${articulo.codigo}">${articulo.codigo}</option>`;
     }
 }
@@ -112,7 +115,7 @@ formInfluencer.addEventListener("submit", (event) => {
         mailInput.value,
         comisionInput.value
     );
-    influencers.push(nuevoInfluencer);
+    sistema.agregarInfluencer(nuevoInfluencer);
     mostrarInfluencers();
     actualizarDesplegables();
     formInfluencer.reset();
@@ -124,12 +127,12 @@ formInfluencer.addEventListener("submit", (event) => {
 ordenarInfluencers.addEventListener("click", () => {
 
     if(ascendente){
-        influencers.sort((influencerAnterior, influencerPosterior) => {
+        sistema.listaInfluencers.sort((influencerAnterior, influencerPosterior) => {
            return influencerAnterior.nombre.localeCompare(influencerPosterior.nombre)
         })
 
     }else{
-        influencers.sort((influencerAnterior,influencerPosterior) => {
+        sistema.listaInfluencers.sort((influencerAnterior,influencerPosterior) => {
           return influencerPosterior.nombre.localeCompare(influencerAnterior.nombre)
         }
         );
@@ -153,7 +156,7 @@ formArticulo.addEventListener("submit", (event) => {
         precioArticuloInput.value
     );
     
-    articulos.push(nuevoArticulo);
+    sistema.agregarArticulo(nuevoArticulo);
     mostrarArticulos();
     actualizarDesplegables();
     formArticulo.reset();
@@ -164,12 +167,12 @@ formArticulo.addEventListener("submit", (event) => {
 ordenarArticulos.addEventListener("click", () => {
 
     if(ascendente){
-        articulos.sort((articuloAnterior, articuloPosterior) => {
+        sistema.listaArticulos.sort((articuloAnterior, articuloPosterior) => {
             return articuloAnterior.codigo.localeCompare(articuloPosterior.codigo)
         })
 
     }else{
-        articulos.sort((articuloAnterior,articuloPosterior) => {
+        sistema.listaArticulos.sort((articuloAnterior,articuloPosterior) => {
             return articuloPosterior.codigo.localeCompare(articuloAnterior.codigo)
     }
     );
@@ -184,26 +187,32 @@ ordenarArticulos.addEventListener("click", () => {
 // EVENTOS VENTAS //
 
 formVenta.addEventListener("submit", (event) => {
-  
+
+    var influencer = desplegableInfluencers.value;
     event.preventDefault();
     let nuevaVenta = new Venta(
     numeroVenta,
     desplegableArticulos.value,
-    desplegableInfluencers.value,
+    influencer,
     cantidadInput.value,
     desplegableMedios.value
     );
 
     numeroVenta++;
     labelNumeroVenta.textContent = "Nro: " + numeroVenta;
-    ventas.push(nuevaVenta);
+    sistema.agregarVenta(nuevaVenta);    
     mostrarVentas();
     modalVenta.close();
     formVenta.reset();
+
 })
-
+/*
 botonEliminarVenta.addEventListener("click", () => {
-
     
     actualizarDesplegables();
+})
+*/
+
+botonDetalle.addEventListener("click", () => {
+    var detalle = "";
 })
