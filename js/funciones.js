@@ -54,10 +54,20 @@ function mostrarInfluencers(){
               <td>${influencer.comision}</td>
               <td>${influencer.total}</td>
               <td>${influencer.etiqueta}</td>
-              <td><button id="botonDetalle">VENTAS</button></td>            
+              <td><button id=${influencer.nombre}>VENTAS</button></td>            
             </tr>
             `;
     }
+
+    for(let influencer of sistema.listaInfluencers){
+    document.getElementById(influencer.nombre).addEventListener("click", () => {
+        for(let venta of influencer.detalle){
+            var contenido;
+            contenido += ("Venta " + venta.numero + "  Art: " + venta.codigoArticulo + "  Cant: " + venta.cantidad + "  Medio: " + venta.medio);
+        }
+        alert(contenido);
+    });
+    }   
 }
 
 // Funcion Listar ARTÍCULOS //
@@ -208,10 +218,6 @@ formVenta.addEventListener("submit", (event) => {
 
 })
 
-botonDetalle.addEventListener("click", () => {
-   console.log(detalle);
-   
-})
 
 /*
 botonEliminarVenta.addEventListener("click", () => {
