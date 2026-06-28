@@ -4,7 +4,7 @@ import { Influencer } from "./clases.js";
 import { Articulo } from "./clases.js";
 import { Venta } from "./clases.js";
 
-// TABLA DE INFLUENCERS
+// INFLUENCERS
 const influencers = [];
 const tablaInfluencers = document.getElementById("tablaInfluencers");
 const formInfluencer = document.getElementById("formInfluencer");
@@ -14,7 +14,7 @@ const comisionInput = document.getElementById("comision");
 const modalInfluencers = document.getElementById("modalInfluencers");
 const ordenarInfluencers = document.getElementById("ordenarNombre");
 
-// TABLA DE ARTICULOS
+// ARTÍCULOS
 const articulos = [];
 const tablaArticulos = document.getElementById("tablaArticulos");
 const formArticulo = document.getElementById("formArticulo");
@@ -25,7 +25,7 @@ const modalArticulo = document.getElementById("modalArticulo");
 const ordenarArticulos = document.getElementById("ordenarTabla");
 let ascendente = true;
 
-// TABLA DE VENTAS
+// VENTAS
 const ventas = [];
 const tablaVentas = document.getElementById("tablaVentas");
 const formVenta = document.getElementById("formVenta");
@@ -35,6 +35,7 @@ const cantidadInput = document.getElementById("cantidad");
 const desplegableMedios = document.getElementById("desplegableMedios");
 const modalVenta = document.getElementById("modalVenta");
 const labelNumeroVenta = document.getElementById("labelNumeroVenta");
+const botonEliminarVenta = document.getElementById("botonEliminarVenta");
 let numeroVenta = 1;
 
 //// FUNCIONES ////
@@ -81,6 +82,7 @@ function mostrarVentas(){
               <td>${venta.influencer}</td>
               <td>${venta.cantidad}</td>
               <td>${venta.medio}</td>
+              <td><button id="botonEliminarVenta">❌</button></td>
             </tr>
             `;
     }
@@ -198,4 +200,10 @@ formVenta.addEventListener("submit", (event) => {
     mostrarVentas();
     modalVenta.close();
     formVenta.reset();
+})
+
+botonEliminarVenta.addEventListener("click", () => {
+
+    
+    actualizarDesplegables();
 })
