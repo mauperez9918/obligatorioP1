@@ -1,15 +1,17 @@
+ /* <!-- Mauricio Perez Nro: 378914 - Mariano Albornoz  Nro: 357964 --> */
+
 // CLASE SISTEMA
 
 export class Sistema {
 
     constructor(listaInfluencers,listaArticulos,listaVentas){
-    this.listaInfluencers = [];
-    this.listaArticulos = [];
-    this.listaVentas = []; 
+     this.listaInfluencers = [];
+     this.listaArticulos = [];
+     this.listaVentas = [];
     }
 
     agregarInfluencer(influencer){
-    this.listaInfluencers.push(influencer);
+     this.listaInfluencers.push(influencer);
     }
 
     agregarArticulo(articulo){
@@ -36,16 +38,6 @@ export class Influencer {
     this.detalle = "SIN VENTAS";
     }
 
-    verInfluencer(){
-    return {
-        nombre: this.nombre,
-        mail: this.mail,
-        comision: this.comision,
-        total: this.total,
-        etiqueta: this.etiqueta,
-        detalle: this.detalle,
-          }
-    }
     };
 
 //CLASE ARTICULO
@@ -56,14 +48,6 @@ export class Influencer {
             this.codigo = codigo;
             this.descripcion = descripcion;
             this.precio = precio;
-        }
-
-        verArticulo(){
-            return {
-                codigo: this.codigo,
-                descripcion: this.descripcion,
-                precio: this.precio,
-            }
         }
 
     };
@@ -78,16 +62,6 @@ export class Influencer {
             this.influencer = influencer;
             this.cantidad = cantidad;
             this.medio = medio;
-        }
-
-        verVenta(){
-            return {
-             numero: this.numero,
-             codigoArticulo: this.codigoArticulo,
-             influencer: this.influencer,
-             cantidad: this.cantidad,
-             medio: this.medio
-            }
         }
 
     };

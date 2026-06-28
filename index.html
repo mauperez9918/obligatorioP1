@@ -1,4 +1,4 @@
-<!-- Mauricio Perez - Mariano Albornoz -->
+<!-- Mauricio Perez Nro: 378914 - Mariano Albornoz  Nro: 357964 -->
 
 <!doctype html>
 <html lang="en">
@@ -135,28 +135,32 @@
           <h3>Datos de la venta a agregar</h3>
           <h4>Venta</h4>
 
-          <!-- Formulario agregar ARTÍCULO -->
-          <form class="inputcontainer">
-       
-              <label>Nro: 3</label>
-              <label>Artículo</label>
-      
-              <label>Influencer</label>
-              <select>
-              </select>
+          <!-- Formulario VENTAS -->
+          <form id="formVenta" class="inputcontainer">
+            <label id="labelNumeroVenta">Nro: 1</label>
 
-          
+            <label>Artículo</label>
+            <select id="desplegableArticulos"></select>
+
+            <label>Influencer</label>
+            <select id="desplegableInfluencers"></select>
+
             <label>Cantidad</label>
-            <input required type="text">
+            <input required type="number" id="cantidad">
 
             <label>Medio</label>
-            <select name="medios" id="medios">
-            <option>1-Instagram</option>
+            <select id="desplegableMedios">
+            <option value="Instagram">1-Instagram</option>
+            <option value="YouTube">2-YouTube</option>
+            <option value="X">3-X</option>
+            <option value="TikTok">4-TikTok</option>
+            <option value="Facebook">5-Facebook</option>
+            <option value="Otras">6-Otras</option>
             </select>
-
+            
             <button type="button" command="close" commandfor="modalVenta">Cancelar</button>
 
-            <button type="button" id="agregarVenta">Agregar</button>
+            <button type="submit">Agregar</button>
           </form>
       
         </dialog>
@@ -165,7 +169,7 @@
         <article>
 
           <h3>Tabla de ventas</h3>
-          <table id="tablaVentas">
+          <table>
 
             <!-- Encabezado de columnas de la tabla -->
             <thead>
@@ -179,6 +183,7 @@
               </tr>
             </thead>
 
+            <tbody id="tablaVentas"></tbody>
           </table>
         </article>
 
