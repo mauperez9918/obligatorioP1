@@ -190,7 +190,7 @@ formVenta.addEventListener("submit", (event) => {
 
     var influencer = desplegableInfluencers.value;
     event.preventDefault();
-    let nuevaVenta = new Venta(
+    var nuevaVenta = new Venta(
     numeroVenta,
     desplegableArticulos.value,
     influencer,
@@ -201,11 +201,18 @@ formVenta.addEventListener("submit", (event) => {
     numeroVenta++;
     labelNumeroVenta.textContent = "Nro: " + numeroVenta;
     sistema.agregarVenta(nuevaVenta);    
+    sistema.agregarVentaDetalle(influencer, nuevaVenta);
     mostrarVentas();
     modalVenta.close();
     formVenta.reset();
 
 })
+
+botonDetalle.addEventListener("click", () => {
+   console.log(detalle);
+   
+})
+
 /*
 botonEliminarVenta.addEventListener("click", () => {
     
@@ -213,6 +220,3 @@ botonEliminarVenta.addEventListener("click", () => {
 })
 */
 
-botonDetalle.addEventListener("click", () => {
-    var detalle = "";
-})

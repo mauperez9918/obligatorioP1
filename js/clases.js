@@ -21,6 +21,14 @@ export class Sistema {
     agregarVenta(venta){
      this.listaVentas.push(venta);   
     }
+
+    agregarVentaDetalle(nombreInfluencer, nuevaVenta) {
+     for (let influencer of this.listaInfluencers){
+        if (influencer.nombre = nombreInfluencer) {
+            influencer.detalle.push(nuevaVenta);
+        }
+     }
+    }
 }
 
 
