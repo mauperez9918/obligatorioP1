@@ -109,8 +109,7 @@ function mostrarVentas(){
 
     for(let venta of sistema.listaVentas){
     document.getElementById(venta.numero).addEventListener("click", () => {
-        let ventaEliminar = sistema.listaVentas.indexOf(venta);
-        sistema.borrarVenta(ventaEliminar);
+        sistema.borrarVenta(venta.numero);
         mostrarVentas();
         mostrarInfluencers();
     });
@@ -234,12 +233,4 @@ formVenta.addEventListener("submit", (event) => {
     formVenta.reset();
 
 })
-
-
-/*
-botonEliminarVenta.addEventListener("click", () => {
-    
-    actualizarDesplegables();
-})
-*/
 

@@ -22,7 +22,8 @@ export class Sistema {
      this.listaVentas.push(venta);   
     }
 
-    borrarVenta(nombreInfluencer, venta){
+    borrarVenta(venta){
+     let ventaEliminar = this.listaVentas.indexOf(venta);
      this.listaVentas.splice(venta, 1);
     }
 
