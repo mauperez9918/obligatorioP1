@@ -62,10 +62,15 @@ function mostrarInfluencers(){
     for(let influencer of sistema.listaInfluencers){
     document.getElementById(influencer.nombre).addEventListener("click", () => {
         var contenido = "";
-        for(let venta of influencer.detalle){
-            var comisionPorVenta = sistema.calcularComisionPorVenta(influencer, venta);
-            var totalPorVenta = sistema.calcularTotalPorVenta(venta)
-            contenido += ("Nro " + venta.numero +  "→  " + venta.cantidad + "→  " + venta.codigoArticulo + " c/u Precio " + " Total $" + totalPorVenta + " →  " + "Comisión: " + comisionPorVenta + "\n");
+        if(influencer.detalle.length > 0){
+            for(let venta of influencer.detalle){
+                var comisionPorVenta = sistema.calcularComisionPorVenta(influencer, venta);
+                var totalPorVenta = sistema.calcularTotalPorVenta(venta)
+                var articulo = sistema.obtenerArticuloPorCodigo(venta.codigoArticulo);
+                contenido += ("Ventas:" + "\n" + "Nro " + venta.numero +  "→  " + venta.cantidad + "→  " + articulo.descripcion + "→  " + articulo.precio + " c/u $ " + "  Total $" + totalPorVenta + " →  " + "Comisión: " + comisionPorVenta + "\n");
+            }
+        } else {
+            contenido = "El influencer no tiene ventas";
         }
         alert(contenido);
     });

@@ -27,8 +27,8 @@ export class Sistema {
     }
 
     agregarVentaDetalle(nombreInfluencer, nuevaVenta) {
-     for (let influencer of this.listaInfluencers){
-        if (influencer.nombre == nombreInfluencer) {
+        for (let influencer of this.listaInfluencers){
+            if (influencer.nombre == nombreInfluencer) {
             influencer.detalle.push(nuevaVenta);
         }
      }
@@ -37,12 +37,12 @@ export class Sistema {
     // FUNCION CALCULAR COMISIÓN POR VENTA //
     calcularComisionPorVenta(influencer, venta) {
 
-     for (let articulo of this.listaArticulos){
+        for (let articulo of this.listaArticulos){
 
-       if(articulo.codigo == venta.codigoArticulo){
-       var totalVenta = articulo.precio * venta.cantidad;
-       }
-     }
+            if(articulo.codigo == venta.codigoArticulo){
+            var totalVenta = articulo.precio * venta.cantidad;
+            }
+        }
 
     return (influencer.comision * totalVenta) / 100;
     }
@@ -50,12 +50,20 @@ export class Sistema {
     // FUNCION CALCULAR TOTAL POR VENTA //
     calcularTotalPorVenta(venta) {
 
-     for (let articulo of this.listaArticulos){
+        for (let articulo of this.listaArticulos){
 
-       if(articulo.codigo == venta.codigoArticulo){
-       return articulo.precio * venta.cantidad;
-       }
-     }
+            if(articulo.codigo == venta.codigoArticulo){
+            return articulo.precio * venta.cantidad;
+            }
+        }
+    }
+
+    obtenerArticuloPorCodigo(codigoArticulo){
+        for (let articulo of this.listaArticulos){
+            if(articulo.codigo == codigoArticulo){
+                return articulo;
+            }
+        }
     }
 }
 
