@@ -96,10 +96,19 @@ function mostrarVentas(){
               <td>${venta.influencer}</td>
               <td>${venta.cantidad}</td>
               <td>${venta.medio}</td>
-              <td><button id="botonEliminarVenta">❌</button></td>
+              <td><button id="botonEliminar${venta.numero}">❌</button></td>
             </tr>
             `;
     }
+
+    for(let venta of sistema.listaVentas){
+    document.getElementById("botonEliminar" + venta.numero).addEventListener("click", () => {
+        let ventaEliminar = sistema.listaVentas.indexOf(venta);
+        sistema.listaVentas.splice(ventaEliminar, 1);
+        mostrarVentas();
+        mostrarInfluencers();
+    });
+}
 }
 
 
