@@ -64,7 +64,8 @@ function mostrarInfluencers(){
         var contenido = "";
         for(let venta of influencer.detalle){
             var comisionPorVenta = sistema.calcularComisionPorVenta(influencer, venta);
-            contenido += ("Nro " + venta.numero +  "→  " + venta.cantidad + "→  " + venta.codigoArticulo + " c/u Precio " + " Total $" + "Total en numero" + "→  " + "Comisión: " + comisionPorVenta + "\n");
+            var totalPorVenta = sistema.calcularTotalPorVenta(venta)
+            contenido += ("Nro " + venta.numero +  "→  " + venta.cantidad + "→  " + venta.codigoArticulo + " c/u Precio " + " Total $" + totalPorVenta + " →  " + "Comisión: " + comisionPorVenta + "\n");
         }
         alert(contenido);
     });

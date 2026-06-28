@@ -34,17 +34,28 @@ export class Sistema {
      }
     }
 
+    // FUNCION CALCULAR COMISIÓN POR VENTA //
     calcularComisionPorVenta(influencer, venta) {
 
-    for (let articulo of this.listaArticulos){
+     for (let articulo of this.listaArticulos){
 
-    if(articulo.codigo == venta.codigoArticulo){
-    var totalVenta = articulo.precio * venta.cantidad;
-    }
-
-    }
+       if(articulo.codigo == venta.codigoArticulo){
+       var totalVenta = articulo.precio * venta.cantidad;
+       }
+     }
 
     return (influencer.comision * totalVenta) / 100;
+    }
+
+    // FUNCION CALCULAR TOTAL POR VENTA //
+    calcularTotalPorVenta(venta) {
+
+     for (let articulo of this.listaArticulos){
+
+       if(articulo.codigo == venta.codigoArticulo){
+       return articulo.precio * venta.cantidad;
+       }
+     }
     }
 }
 
