@@ -239,7 +239,7 @@ formVenta.addEventListener("submit", (event) => {
     influencer.total += sistema.calcularComisionPorVenta(influencer, nuevaVenta);
     mostrarVentas();
     sistema.actualizarEtiquetas();
-    sistema.articuloMasVendido;
+    sistema.articuloMasVendido();
     mostrarInfluencers();
     modalVenta.close();
     formVenta.reset();
