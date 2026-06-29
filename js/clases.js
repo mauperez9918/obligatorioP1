@@ -20,6 +20,7 @@ export class Sistema {
 
     agregarVenta(venta){
      this.listaVentas.push(venta);   
+     this.actualizarGrafico();
     }
 
     borrarVenta(influencer, numeroVenta, comision){
@@ -147,6 +148,95 @@ export class Sistema {
                 articulo.etiqueta = "⭐";
             }
         }
+    }
+
+    mayorMontoPorMedio() {
+    let ventasInstagram = 0;
+    let ventasYouTube = 0;
+    let ventasX = 0;
+    let ventasTikTok = 0;
+    let ventasFacebook = 0;
+    let ventasOtras = 0;
+
+    for (let venta of this.listaVentas) {
+        if (venta.medio == "Instagram") {
+            ventasInstagram += venta.monto;
+        }
+
+        if (venta.medio == "YouTube") {
+            ventasYouTube += venta.monto;
+        }
+
+        if (venta.medio == "X") {
+            ventasX += venta.monto;
+        }
+
+        if (venta.medio == "TikTok") {
+            ventasTikTok += venta.monto;
+        }
+
+        if (venta.medio == "Facebook") {
+            ventasFacebook += venta.monto;
+        }
+
+        if (venta.medio == "Otras") {
+            ventasOtras += venta.monto;
+        }
+    }
+
+    let ventasPorMedio = [
+        ventasInstagram,
+        ventasYouTube,
+        ventasX,
+        ventasTikTok,
+        ventasFacebook,
+        ventasOtras
+    ];
+
+    let mayorVenta = ventasPorMedio[0];
+
+    for (let i = 1; i < ventasPorMedio.length; i++) {
+        if (ventasPorMedio[i] > mayorVenta) {
+            mayorVenta = ventasPorMedio[i];
+        }
+    }
+
+    return mayorVenta;
+    }
+
+    calcularVentasPorMedio(medio) {
+    let totalVentas = 0;
+
+    for (let venta of this.listaVentas) {
+        if (venta.medio == medio) {
+            totalVentas += venta.monto;
+        }
+    }
+
+    return totalVentas;
+    }
+
+    actualizarGrafico() {
+
+    let tamañoMaximo = 200;
+    let tamañoMinimo = tamañoMaximo * 0.1;
+
+    let mayorMonto = this.mayorMontoPorMedio();
+
+    let medios = ["Instagram", "YouTube", "X", "TikTok", "Facebook", "Otras"];
+
+    for (let medio of medios) {
+
+        let ventas = this.calcularVentasPorMedio(medio);
+
+        let tamaño = tamañoMinimo + (ventas * (tamañoMaximo - tamañoMinimo)) / mayorMonto;
+
+        let burbuja = document.querySelector(".burbuja" + medio);
+
+        burbuja.style.width = tamaño + "px";
+        burbuja.style.height = tamaño + "px";
+        burbuja.innerHTML = ventas;
+    }
     }
 }
 

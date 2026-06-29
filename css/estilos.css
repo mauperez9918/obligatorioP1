@@ -95,32 +95,32 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 50%;
   width: 20px;
   height: 20px;
 }
 
-.burbuja1{
+.burbujaInstagram{
   background-color: red;
 }
 
-.burbuja2{
+.burbujaYouTube{
   background-color: blue;
 }
 
-.burbuja3{
+.burbujaX{
   background-color: green;
 }
 
-.burbuja4{
+.burbujaTikTok{
   background-color: yellow;
 }
 
-.burbuja5{
+.burbujaFacebook{
   background-color: violet;
 }
 
-.burbuja6{
+.burbujaOtras{
   background-color: orange;
 }
 
