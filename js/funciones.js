@@ -159,11 +159,19 @@ function actualizarDesplegables() {
 // AGREGAR INFLUENCER //
 formInfluencer.addEventListener("submit", (event) => {
   event.preventDefault();
+
   let nuevoInfluencer = new Influencer(
     nombreInput.value,
     mailInput.value,
     comisionInput.value,
   );
+
+  for (let influencer of sistema.listaInfluencers){
+    if(nuevoInfluencer.mail == influencer.mail){
+      return alert("Ya existe un influencer con el mail " + nuevoInfluencer.mail + ", por favor inténtalo de nuevo.")
+    } 
+  }
+
   sistema.agregarInfluencer(nuevoInfluencer);
   mostrarInfluencers();
   actualizarDesplegables();
@@ -204,6 +212,12 @@ formArticulo.addEventListener("submit", (event) => {
     descripcionArticuloInput.value,
     precioArticuloInput.value,
   );
+
+  for (let articulo of sistema.listaArticulos){
+    if(nuevoArticulo.codigo == articulo.codigo){
+      return alert("Ya existe un articulo con el código " + articulo.codigo + ", por favor inténtalo de nuevo.")
+    } 
+  }
 
   sistema.agregarArticulo(nuevoArticulo);
   mostrarArticulos();
