@@ -68,7 +68,7 @@ export class Sistema {
     }
 
     // ACTUALIZAR ETIQUETAS
-    actualizarEtiquetas() {
+actualizarEtiquetas() {
 
     //SIN VENTAS
     for (let influencer of this.listaInfluencers){
@@ -100,7 +100,6 @@ export class Sistema {
             }
         }
     }
-    
     for (let influencer of this.listaInfluencers){
         for (let venta of influencer.detalle){
             if (venta.monto === maxMonto && maxMonto > 0){
@@ -108,7 +107,7 @@ export class Sistema {
             }
         }
     }
-    }
+}
 }
 
 // CLASE INFLUENCER
