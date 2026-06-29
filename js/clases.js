@@ -40,6 +40,8 @@ export class Sistema {
         this.listaVentas.splice(i, 1);
       }
     }
+
+    this.actualizarGrafico();
   }
 
   // FUNCIÓN AGREGAR VENTA AL DETALLE DE UN INFLUENCER //
