@@ -24,6 +24,12 @@ export class Sistema {
     }
 
     borrarVenta(influencer, numeroVenta, comision){
+    influencer.total = influencer.total - comision;
+        for(let i = 0; i < influencer.detalle.length; i++){
+        if(influencer.detalle[i].numero == numeroVenta){
+            influencer.detalle.splice(i, 1);
+            }
+        }
      let ventaEliminar = this.listaVentas.indexOf(numeroVenta);
      influencer.total = influencer.total - comision
      
