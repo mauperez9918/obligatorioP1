@@ -61,20 +61,20 @@ function mostrarInfluencers(){
 
     for(let influencer of sistema.listaInfluencers){
     document.getElementById(influencer.nombre).addEventListener("click", () => {
-        var contenido = "";
-        if(influencer.detalle.length > 0){
-            for(let venta of influencer.detalle){
-                var comisionPorVenta = sistema.calcularComisionPorVenta(influencer, venta);
-                var totalPorVenta = sistema.calcularTotalPorVenta(venta)
-                var articulo = sistema.obtenerArticuloPorCodigo(venta.codigoArticulo);
-                contenido += ("Ventas:" + "\n" + "Nro " + venta.numero +  "→  " + venta.cantidad + "→  " + articulo.descripcion + "→  " + articulo.precio + " c/u $ " + "  Total $" + totalPorVenta + " →  " + "Comisión: " + comisionPorVenta + "\n");
+            var contenido = "";
+            if(influencer.detalle.length > 0){
+                for(let venta of influencer.detalle){
+                    var comisionPorVenta = sistema.calcularComisionPorVenta(influencer, venta);
+                    var totalPorVenta = sistema.calcularTotalPorVenta(venta)
+                    var articulo = sistema.obtenerArticuloPorCodigo(venta.codigoArticulo);
+                    contenido += ("Ventas:" + "\n" + "Nro " + venta.numero +  "→  " + venta.cantidad + "→  " + articulo.descripcion + "→  " + articulo.precio + " c/u $ " + "  Total $" + totalPorVenta + " →  " + "Comisión: " + comisionPorVenta + "\n");
+                }
+            } else {
+                contenido = "El influencer no tiene ventas";
             }
-        } else {
-            contenido = "El influencer no tiene ventas";
-        }
-        alert(contenido);
-    });
-    }   
+            alert(contenido);
+        });
+    }
 }
 
 // Funcion Listar ARTÍCULOS //
@@ -110,9 +110,9 @@ function mostrarVentas(){
     for(let venta of sistema.listaVentas){
     document.getElementById(venta.numero).addEventListener("click", () => {
         sistema.borrarVenta(venta.numero);
-        sistema.actualizarEtiquetas();
         mostrarVentas();
         mostrarInfluencers();
+        sistema.actualizarEtiquetas();
     });
 }
 }
@@ -142,7 +142,6 @@ formInfluencer.addEventListener("submit", (event) => {
         comisionInput.value
     );
     sistema.agregarInfluencer(nuevoInfluencer);
-    sistema.actualizarEtiquetas();
     mostrarInfluencers();
     actualizarDesplegables();
     formInfluencer.reset();
@@ -217,10 +216,10 @@ formVenta.addEventListener("submit", (event) => {
 
     var influencer;
     for(let inf of sistema.listaInfluencers){
-    if(inf.nombre === desplegableInfluencers.value){
+        if(inf.nombre === desplegableInfluencers.value){
         influencer = inf;
+        }
     }
-}
 
     var monto = cantidadInput.value * sistema.obtenerArticuloPorCodigo(desplegableArticulos.value).precio;
     event.preventDefault();
@@ -239,9 +238,9 @@ formVenta.addEventListener("submit", (event) => {
     sistema.agregarVentaDetalle(influencer.nombre, nuevaVenta);
     influencer.total += sistema.calcularComisionPorVenta(influencer, nuevaVenta);
     mostrarVentas();
+    sistema.actualizarEtiquetas();
     mostrarInfluencers();
     modalVenta.close();
     formVenta.reset();
-
 })
 
