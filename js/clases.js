@@ -64,15 +64,6 @@ export class Sistema {
     return (influencer.comision * totalVenta) / 100;
   }
 
-  // FUNCIÓN CALCULAR TOTAL POR VENTA //
-  calcularTotalPorVenta(venta) {
-    for (let articulo of this.listaArticulos) {
-      if (articulo.codigo == venta.codigoArticulo) {
-        return articulo.precio * venta.cantidad;
-      }
-    }
-  }
-
   // FUNCIÓN OBTENER UN ARTÍCULO POR CODIGO //
   obtenerArticuloPorCodigo(codigoArticulo) {
     for (let articulo of this.listaArticulos) {

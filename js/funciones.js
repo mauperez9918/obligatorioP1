@@ -69,7 +69,6 @@ function mostrarInfluencers() {
             influencer,
             venta,
           );
-          var totalPorVenta = sistema.calcularTotalPorVenta(venta);
           var articulo = sistema.obtenerArticuloPorCodigo(venta.codigoArticulo);
           contenido +=
             "Ventas:" +
@@ -84,7 +83,7 @@ function mostrarInfluencers() {
             articulo.precio +
             " c/u $ " +
             "  Total $" +
-            totalPorVenta +
+            venta.monto +
             " →  " +
             "Comisión: " +
             comisionPorVenta +
