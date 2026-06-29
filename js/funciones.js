@@ -215,7 +215,7 @@ formArticulo.addEventListener("submit", (event) => {
 
   for (let articulo of sistema.listaArticulos){
     if(nuevoArticulo.codigo == articulo.codigo){
-      return alert("Ya existe un articulo con el código " + articulo.codigo + ", por favor inténtalo de nuevo.")
+      return alert("Ya existe un artículo con el código " + articulo.codigo + ", por favor inténtalo de nuevo.")
     } 
   }
 

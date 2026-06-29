@@ -114,7 +114,7 @@ export class Sistema {
     }
   }
 
-  // FUNCIÓN ARTICULO MAS VENDIDO //
+  // FUNCIÓN ARTÍCULO MÁS VENDIDO //
   articuloMasVendido() {
     for (let articulo of this.listaArticulos) {
       articulo.etiqueta = "";
@@ -146,7 +146,7 @@ export class Sistema {
     }
   }
 
-  // FUNCIÓN CALCULAR MEDIO CON MAYOR MONTO VENDIDO//
+  // FUNCIÓN CALCULAR TOTAL ACUMULADO MÁS ALTO POR MEDIO //
   mayorMontoPorMedio() {
   let medios = ["Instagram", "YouTube", "X", "TikTok", "Facebook", "Otras"];
   let mayorVenta = 0;
