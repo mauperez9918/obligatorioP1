@@ -68,46 +68,78 @@ export class Sistema {
     }
 
     // ACTUALIZAR ETIQUETAS
-actualizarEtiquetas() {
+    actualizarEtiquetas() {
 
-    //SIN VENTAS
-    for (let influencer of this.listaInfluencers){
-        influencer.etiqueta = "";
-        if(influencer.total == 0){
-            influencer.etiqueta = "🟦";
+        //SIN VENTAS
+        for (let influencer of this.listaInfluencers){
+            influencer.etiqueta = "";
+            if(influencer.total == 0){
+                influencer.etiqueta = "🟦";
+            }
         }
-    }
 
-    //TOP COMISION
-    let maxTotal = 0;
-    for (let influencer of this.listaInfluencers){
-        if (influencer.total > maxTotal){
-            maxTotal = influencer.total;
+        //TOP COMISION
+        let maxTotal = 0;
+        for (let influencer of this.listaInfluencers){
+            if (influencer.total > maxTotal){
+                maxTotal = influencer.total;
+            }
         }
-    }
-    for (let influencer of this.listaInfluencers){
-        if (influencer.total === maxTotal && maxTotal > 0){
-            influencer.etiqueta += "🔥";
+        for (let influencer of this.listaInfluencers){
+            if (influencer.total === maxTotal && maxTotal > 0){
+                influencer.etiqueta += "🔥";
+            }
         }
-    }
 
-    //VENTA MAS CARA
-    let maxMonto = 0;
-    for (let influencer of this.listaInfluencers){
-        for (let venta of influencer.detalle){
-            if (venta.monto > maxMonto){
-                maxMonto = venta.monto;
+        //VENTA MAS CARA
+        let maxMonto = 0;
+        for (let influencer of this.listaInfluencers){
+            for (let venta of influencer.detalle){
+                if (venta.monto > maxMonto){
+                    maxMonto = venta.monto;
+                }
+            }
+        }
+        for (let influencer of this.listaInfluencers){
+            for (let venta of influencer.detalle){
+                if (venta.monto === maxMonto && maxMonto > 0){
+                    influencer.etiqueta += "🟢";
+                }
             }
         }
     }
-    for (let influencer of this.listaInfluencers){
-        for (let venta of influencer.detalle){
-            if (venta.monto === maxMonto && maxMonto > 0){
-                influencer.etiqueta += "🟢";
+
+    // ARTICULO MAS VENDIDO
+    articuloMasVendido() {
+        for (let articulo of this.listaArticulos){
+            articulo.etiqueta = "";
+        }
+
+        let maxCantidad = 0;
+        for (let articulo of this.listaArticulos){
+            let total = 0;
+            for (let venta of this.listaVentas){
+                if(venta.codigoArticulo === articulo.codigo){
+                    total += Number(venta.cantidad);
+                }
+            }
+            if(total > maxCantidad){
+                maxCantidad = total;
+            }
+        }
+
+        for (let articulo of this.listaArticulos){
+            let total = 0;
+            for (let venta of this.listaVentas){
+                if(venta.codigoArticulo === articulo.codigo){
+                    total += Number(venta.cantidad);
+                }
+            }
+            if(total === maxCantidad && maxCantidad > 0){
+                articulo.etiqueta = "⭐";
             }
         }
     }
-}
 }
 
 // CLASE INFLUENCER
@@ -128,10 +160,11 @@ export class Influencer {
 
     export class Articulo {
 
-        constructor(codigo, descripcion, precio){
+        constructor(codigo, descripcion, precio, etiqueta){
             this.codigo = codigo;
             this.descripcion = descripcion;
             this.precio = precio;
+            this.etiqueta = "";
         }
 
     };

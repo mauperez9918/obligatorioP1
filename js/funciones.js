@@ -84,7 +84,7 @@ function mostrarArticulos(){
         tablaArticulos.innerHTML +=`
             <tr>
               <td>${articulo.codigo}</td>
-              <td>${articulo.descripcion}</td>
+              <td>${articulo.descripcion} ${articulo.etiqueta}</td>              
               <td>${articulo.precio}</td>
             </tr>
             `;
@@ -239,6 +239,7 @@ formVenta.addEventListener("submit", (event) => {
     influencer.total += sistema.calcularComisionPorVenta(influencer, nuevaVenta);
     mostrarVentas();
     sistema.actualizarEtiquetas();
+    sistema.articuloMasVendido;
     mostrarInfluencers();
     modalVenta.close();
     formVenta.reset();
