@@ -33,17 +33,13 @@ export class Sistema {
       }
     }
 
-    let ventaEliminar = this.listaVentas.indexOf(numeroVenta);
-
     influencer.total = influencer.total - comision;
 
-    for (let venta of this.listaVentas) {
-      if (venta.numero == numeroVenta) {
-        influencer.detalle.splice(this.listaVentas.indexOf(numeroVenta), 1);
+    for (let i = 0; i < this.listaVentas.length; i++) {
+      if (this.listaVentas[i].numero == numeroVenta) {
+        this.listaVentas.splice(i, 1);
       }
     }
-
-    this.listaVentas.splice(ventaEliminar, 1);
   }
 
   // FUNCIÓN AGREGAR VENTA AL DETALLE DE UN INFLUENCER //
