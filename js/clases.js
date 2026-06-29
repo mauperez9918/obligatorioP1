@@ -68,27 +68,29 @@ export class Sistema {
     }
 
     // ACTUALIZAR ETIQUETAS
-    actualizarEtiquetas() {
+actualizarEtiquetas() {
+
+    //SIN VENTAS
+    for (let influencer of this.listaInfluencers){
+        influencer.etiqueta = "";
+        if(influencer.total == 0){
+            influencer.etiqueta = "🟦";
+        }
+    }
 
     //TOP COMISION
     let maxTotal = 0;
     for (let influencer of this.listaInfluencers){
-        
-        if(influencer.total == 0) {
-        return influencer.etiqueta = "🟦"
-        }
-    
-        influencer.etiqueta = "";
-
         if (influencer.total > maxTotal){
             maxTotal = influencer.total;
         }
-
+    }
+    for (let influencer of this.listaInfluencers){
         if (influencer.total === maxTotal && maxTotal > 0){
             influencer.etiqueta += "🔥";
         }
     }
-    
+
     //VENTA MAS CARA
     let maxMonto = 0;
     for (let influencer of this.listaInfluencers){
@@ -96,16 +98,17 @@ export class Sistema {
             if (venta.monto > maxMonto){
                 maxMonto = venta.monto;
             }
-
-             if (venta.monto === maxMonto && maxMonto > 0){
+        }
+    }
+    for (let influencer of this.listaInfluencers){
+        for (let venta of influencer.detalle){
+            if (venta.monto === maxMonto && maxMonto > 0){
                 influencer.etiqueta += "🟢";
             }
         }
     }
 }
 }
-
-
 
 // CLASE INFLUENCER
 export class Influencer {
