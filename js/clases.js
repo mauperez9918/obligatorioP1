@@ -146,59 +146,19 @@ export class Sistema {
     }
   }
 
-  // FUNCIÓN CALCULAR MEDIO CON MAYOR MONTO //
+  // FUNCIÓN CALCULAR MEDIO CON MAYOR MONTO VENDIDO//
   mayorMontoPorMedio() {
-    let ventasInstagram = 0;
-    let ventasYouTube = 0;
-    let ventasX = 0;
-    let ventasTikTok = 0;
-    let ventasFacebook = 0;
-    let ventasOtras = 0;
+  let medios = ["Instagram", "YouTube", "X", "TikTok", "Facebook", "Otras"];
+  let mayorVenta = 0;
 
-    for (let venta of this.listaVentas) {
-      if (venta.medio == "Instagram") {
-        ventasInstagram += venta.monto;
-      }
-
-      if (venta.medio == "YouTube") {
-        ventasYouTube += venta.monto;
-      }
-
-      if (venta.medio == "X") {
-        ventasX += venta.monto;
-      }
-
-      if (venta.medio == "TikTok") {
-        ventasTikTok += venta.monto;
-      }
-
-      if (venta.medio == "Facebook") {
-        ventasFacebook += venta.monto;
-      }
-
-      if (venta.medio == "Otras") {
-        ventasOtras += venta.monto;
-      }
+  for (let medio of medios) {
+    let total = this.calcularVentasPorMedio(medio);
+    if (total > mayorVenta) {
+      mayorVenta = total;
     }
+  }
 
-    let ventasPorMedio = [
-      ventasInstagram,
-      ventasYouTube,
-      ventasX,
-      ventasTikTok,
-      ventasFacebook,
-      ventasOtras,
-    ];
-
-    let mayorVenta = ventasPorMedio[0];
-
-    for (let i = 1; i < ventasPorMedio.length; i++) {
-      if (ventasPorMedio[i] > mayorVenta) {
-        mayorVenta = ventasPorMedio[i];
-      }
-    }
-
-    return mayorVenta;
+  return mayorVenta;
   }
 
   // FUNCIÓN CALCULAR EL MONTO DE LAS VENTAS POR CADA MEDIO //
@@ -216,7 +176,7 @@ export class Sistema {
 
   // FUNCIÓN PARA ACTUALIZAR GRÁFICO DE BURBUJAS //
   actualizarGrafico() {
-    let tamañoMaximo = 200;
+    let tamañoMaximo = 150;
     let tamañoMinimo = tamañoMaximo * 0.1;
 
     let mayorMonto = this.mayorMontoPorMedio();
@@ -224,13 +184,18 @@ export class Sistema {
     let medios = ["Instagram", "YouTube", "X", "TikTok", "Facebook", "Otras"];
 
     for (let medio of medios) {
-      let ventas = this.calcularVentasPorMedio(medio);
 
-      let tamaño =
-        tamañoMinimo + (ventas * (tamañoMaximo - tamañoMinimo)) / mayorMonto;
+      let ventas = this.calcularVentasPorMedio(medio);
+      let tamaño;
+
+      if (mayorMonto === 0) {
+        tamaño = tamañoMinimo;
+      } else {
+        tamaño = tamañoMinimo + (ventas * (tamañoMaximo - tamañoMinimo)) / mayorMonto;
+      }
 
       let burbuja = document.querySelector(".burbuja" + medio);
-
+      
       burbuja.style.width = tamaño + "px";
       burbuja.style.height = tamaño + "px";
       burbuja.innerHTML = ventas;
