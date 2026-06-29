@@ -83,3 +83,44 @@ a {
 a:hover {
   color: brown;
 }
+
+.contenedor-burbujas{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 250px;
+}
+
+.burbuja {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  width: 20px;
+  height: 20px;
+}
+
+.burbuja1{
+  background-color: red;
+}
+
+.burbuja2{
+  background-color: blue;
+}
+
+.burbuja3{
+  background-color: green;
+}
+
+.burbuja4{
+  background-color: yellow;
+}
+
+.burbuja5{
+  background-color: violet;
+}
+
+.burbuja6{
+  background-color: orange;
+}
+
