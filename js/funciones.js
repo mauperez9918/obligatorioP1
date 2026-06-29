@@ -99,7 +99,7 @@ function mostrarVentas(){
             <tr>
               <td>${venta.numero}</td>
               <td>${venta.codigoArticulo}</td>
-              <td>${venta.influencer}</td>
+              <td>${venta.influencer.nombre}</td>
               <td>${venta.cantidad}</td>
               <td>${venta.medio}</td>
               <td><button id="${venta.numero}">❌</button></td>
@@ -110,6 +110,7 @@ function mostrarVentas(){
     for(let venta of sistema.listaVentas){
     document.getElementById(venta.numero).addEventListener("click", () => {
         sistema.borrarVenta(venta.numero);
+        sistema.actualizarEtiquetas();
         mostrarVentas();
         mostrarInfluencers();
     });
@@ -141,6 +142,7 @@ formInfluencer.addEventListener("submit", (event) => {
         comisionInput.value
     );
     sistema.agregarInfluencer(nuevoInfluencer);
+    sistema.actualizarEtiquetas();
     mostrarInfluencers();
     actualizarDesplegables();
     formInfluencer.reset();
@@ -213,22 +215,31 @@ ordenarArticulos.addEventListener("click", () => {
 
 formVenta.addEventListener("submit", (event) => {
 
-    var influencer = desplegableInfluencers.value;
+    var influencer;
+    for(let inf of sistema.listaInfluencers){
+    if(inf.nombre === desplegableInfluencers.value){
+        influencer = inf;
+    }
+}
+
+    var monto = cantidadInput.value * sistema.obtenerArticuloPorCodigo(desplegableArticulos.value).precio;
     event.preventDefault();
     var nuevaVenta = new Venta(
     numeroVenta,
     desplegableArticulos.value,
     influencer,
     cantidadInput.value,
-    desplegableMedios.value
+    desplegableMedios.value,
+    monto
     );
 
     numeroVenta++;
     labelNumeroVenta.textContent = "Nro: " + numeroVenta;
     sistema.agregarVenta(nuevaVenta);    
-    
-    sistema.agregarVentaDetalle(influencer, nuevaVenta);
+    sistema.agregarVentaDetalle(influencer.nombre, nuevaVenta);
+    influencer.total += sistema.calcularComisionPorVenta(influencer, nuevaVenta);
     mostrarVentas();
+    mostrarInfluencers();
     modalVenta.close();
     formVenta.reset();
 

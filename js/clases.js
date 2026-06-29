@@ -66,6 +66,40 @@ export class Sistema {
             }
         }
     }
+
+    // ACTUALIZAR ETIQUETAS
+    actualizarEtiquetas() {
+
+    //TOP COMISION
+    let maxTotal = 0;
+    for (let influencer of this.listaInfluencers){
+        if (influencer.total > maxTotal){
+            maxTotal = influencer.total;
+        }
+    }
+    for (let influencer of this.listaInfluencers){
+        if (influencer.total === maxTotal && maxTotal > 0){
+            influencer.etiqueta += "🔥";
+        }
+    }
+
+    //VENTA MAS CARA
+    let maxMonto = 0;
+    for (let influencer of this.listaInfluencers){
+        for (let venta of influencer.detalle){
+            if (venta.monto > maxMonto){
+                maxMonto = venta.monto;
+     }
+    }
+    }
+    for (let influencer of this.listaInfluencers){
+        for (let venta of influencer.detalle){
+            if (venta.monto === maxMonto && maxMonto > 0){
+                influencer.etiqueta += "🟢";
+        }
+        }
+    }
+}
 }
 
 
@@ -78,7 +112,7 @@ export class Influencer {
     this.mail = mail;
     this.comision = comision;  
     this.total = 0;
-    this.etiqueta = "SIN ETIQUETA";
+    this.etiqueta = "🟦";
     this.detalle = [];
     }
 
@@ -100,12 +134,13 @@ export class Influencer {
 
     export class Venta {
 
-        constructor(numero, codigoArticulo, influencer, cantidad, medio){
+        constructor(numero, codigoArticulo, influencer, cantidad, medio, monto){
             this.numero = numero;
             this.codigoArticulo = codigoArticulo;
             this.influencer = influencer;
             this.cantidad = cantidad;
             this.medio = medio;
+            this.monto = monto;
         }
 
     };
