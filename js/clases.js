@@ -9,27 +9,32 @@ export class Sistema {
     this.listaVentas = [];
   }
 
+  // FUNCIÓN AGREGAR INFLUENCER //
   agregarInfluencer(influencer) {
     this.listaInfluencers.push(influencer);
   }
 
+  // FUNCIÓN AGREGAR ARTÍCULO //
   agregarArticulo(articulo) {
     this.listaArticulos.push(articulo);
   }
 
+  // FUNCIÓN AGREGAR VENTA //
   agregarVenta(venta) {
     this.listaVentas.push(venta);
     this.actualizarGrafico();
   }
 
+  // FUNCIÓN BORRAR VENTA //
   borrarVenta(influencer, numeroVenta, comision) {
-    influencer.total = influencer.total - comision;
     for (let i = 0; i < influencer.detalle.length; i++) {
       if (influencer.detalle[i].numero == numeroVenta) {
         influencer.detalle.splice(i, 1);
       }
     }
+
     let ventaEliminar = this.listaVentas.indexOf(numeroVenta);
+
     influencer.total = influencer.total - comision;
 
     for (let venta of this.listaVentas) {
@@ -41,6 +46,7 @@ export class Sistema {
     this.listaVentas.splice(ventaEliminar, 1);
   }
 
+  // FUNCIÓN AGREGAR VENTA AL DETALLE DE UN INFLUENCER //
   agregarVentaDetalle(nombreInfluencer, nuevaVenta) {
     for (let influencer of this.listaInfluencers) {
       if (influencer.nombre == nombreInfluencer) {
@@ -49,7 +55,7 @@ export class Sistema {
     }
   }
 
-  // FUNCION CALCULAR COMISIÓN POR VENTA //
+  // FUNCIÓN CALCULAR COMISIÓN POR VENTA //
   calcularComisionPorVenta(influencer, venta) {
     for (let articulo of this.listaArticulos) {
       if (articulo.codigo == venta.codigoArticulo) {
@@ -60,7 +66,7 @@ export class Sistema {
     return (influencer.comision * totalVenta) / 100;
   }
 
-  // FUNCION CALCULAR TOTAL POR VENTA //
+  // FUNCIÓN CALCULAR TOTAL POR VENTA //
   calcularTotalPorVenta(venta) {
     for (let articulo of this.listaArticulos) {
       if (articulo.codigo == venta.codigoArticulo) {
@@ -69,6 +75,7 @@ export class Sistema {
     }
   }
 
+  // FUNCIÓN OBTENER UN ARTÍCULO POR CODIGO //
   obtenerArticuloPorCodigo(codigoArticulo) {
     for (let articulo of this.listaArticulos) {
       if (articulo.codigo == codigoArticulo) {
@@ -77,7 +84,7 @@ export class Sistema {
     }
   }
 
-  // ACTUALIZAR ETIQUETAS
+  // FUNCIÓN ACTUALIZAR ETIQUETAS //
   actualizarEtiquetas() {
     //SIN VENTAS
     for (let influencer of this.listaInfluencers) {
@@ -87,7 +94,7 @@ export class Sistema {
       }
     }
 
-    //TOP COMISION
+    // TOP COMISION //
     let maxTotal = 0;
     for (let influencer of this.listaInfluencers) {
       if (influencer.total > maxTotal) {
@@ -118,7 +125,7 @@ export class Sistema {
     }
   }
 
-  // ARTICULO MAS VENDIDO
+  // FUNCIÓN ARTICULO MAS VENDIDO //
   articuloMasVendido() {
     for (let articulo of this.listaArticulos) {
       articulo.etiqueta = "";
@@ -150,6 +157,7 @@ export class Sistema {
     }
   }
 
+  // FUNCIÓN CALCULAR MEDIO CON MAYOR MONTO //
   mayorMontoPorMedio() {
     let ventasInstagram = 0;
     let ventasYouTube = 0;
@@ -204,6 +212,7 @@ export class Sistema {
     return mayorVenta;
   }
 
+  // FUNCIÓN CALCULAR EL MONTO DE LAS VENTAS POR CADA MEDIO //
   calcularVentasPorMedio(medio) {
     let totalVentas = 0;
 
@@ -216,6 +225,7 @@ export class Sistema {
     return totalVentas;
   }
 
+  // FUNCIÓN PARA ACTUALIZAR GRÁFICO DE BURBUJAS //
   actualizarGrafico() {
     let tamañoMaximo = 200;
     let tamañoMinimo = tamañoMaximo * 0.1;

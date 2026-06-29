@@ -44,7 +44,7 @@ let numeroVenta = 1;
 
 //// FUNCIONES ////
 
-// Funcion Listar INFLUENCERS //
+// FUNCIÓN PARA CARGAR TABLA DE INFLUENCERS //
 function mostrarInfluencers() {
   tablaInfluencers.innerHTML = "";
   for (let influencer of sistema.listaInfluencers) {
@@ -98,7 +98,7 @@ function mostrarInfluencers() {
   }
 }
 
-// Funcion Listar ARTÍCULOS //
+// FUNCIÓN PARA CARGAR TABLA DE ARTICULOS //
 function mostrarArticulos() {
   tablaArticulos.innerHTML = "";
   for (let articulo of sistema.listaArticulos) {
@@ -112,7 +112,7 @@ function mostrarArticulos() {
   }
 }
 
-// Funcion Listar VENTAS //
+// FUNCIÓN PARA CARGAR TABLA DE VENTAS //
 function mostrarVentas() {
   tablaVentas.innerHTML = "";
   for (let venta of sistema.listaVentas) {
@@ -141,6 +141,7 @@ function mostrarVentas() {
   }
 }
 
+// FUNCIÓN PARA ACTUALIZAR LOS DESPLEGABLES DEL FORM DE AGREGAR VENTA //
 function actualizarDesplegables() {
   desplegableInfluencers.innerHTML = "";
   desplegableArticulos.innerHTML = "";
@@ -264,5 +265,3 @@ formVenta.addEventListener("submit", (event) => {
   modalVenta.close();
   formVenta.reset();
 });
-
-//// GRAFICO DE BURBUJAS ////
