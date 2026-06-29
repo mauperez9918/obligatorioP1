@@ -111,9 +111,11 @@ function mostrarVentas(){
     document.getElementById(venta.numero).addEventListener("click", () => {
         var comision = sistema.calcularComisionPorVenta(venta.influencer, venta)
         sistema.borrarVenta(venta.influencer, venta.numero, comision);
+        sistema.actualizarEtiquetas();
+        sistema.articuloMasVendido();
         mostrarVentas();
         mostrarInfluencers();
-        sistema.actualizarEtiquetas();
+        mostrarArticulos();
     });
 }
 }
