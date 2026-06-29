@@ -109,7 +109,8 @@ function mostrarVentas(){
 
     for(let venta of sistema.listaVentas){
     document.getElementById(venta.numero).addEventListener("click", () => {
-        sistema.borrarVenta(venta.numero);
+        var comision = sistema.calcularComisionPorVenta(venta.influencer, venta)
+        sistema.borrarVenta(venta.influencer, venta.numero, comision);
         mostrarVentas();
         mostrarInfluencers();
         sistema.actualizarEtiquetas();

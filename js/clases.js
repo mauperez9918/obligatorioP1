@@ -22,8 +22,16 @@ export class Sistema {
      this.listaVentas.push(venta);   
     }
 
-    borrarVenta(venta){
-     let ventaEliminar = this.listaVentas.indexOf(venta);
+    borrarVenta(influencer, numeroVenta, comision){
+     let ventaEliminar = this.listaVentas.indexOf(numeroVenta);
+     influencer.total = influencer.total - comision
+     
+     for (let venta of this.listaVentas){
+        if (venta.numero == numeroVenta){
+            influencer.detalle.splice(this.listaVentas.indexOf(numeroVenta), 1)
+        }
+     }
+
      this.listaVentas.splice(ventaEliminar, 1);
     }
 
