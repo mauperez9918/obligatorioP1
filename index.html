@@ -3,18 +3,16 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estilos.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/estilos.css" />
     <title>Sistema de Gestión (Perez-Albornoz)</title>
   </head>
-  
-  <body>
 
+  <body>
     <header><h1>Sistema de Gestión (Perez-Albornoz)</h1></header>
 
     <main>
-      
       <!-- Section para manejo de influencers -->
       <section>
         <!-- Título de section -->
@@ -23,28 +21,31 @@
         <!-- Atla de influencer -->
         <article>
           <h3>Alta de influencer</h3>
-          <button command="show-modal" commandfor="modalInfluencers">Agregar influencer</button>
+          <button command="show-modal" commandfor="modalInfluencers">
+            Agregar influencer
+          </button>
         </article>
 
         <!-- Datos a agregar -->
-        <dialog id="modalInfluencers"> 
-            <h3>Datos del influencer a agregar</h3>
-            <h4>Influencer</h4>
+        <dialog id="modalInfluencers">
+          <h3>Datos del influencer a agregar</h3>
+          <h4>Influencer</h4>
 
-            <!-- Formulario agregar influencer -->
-            <form id="formInfluencer" class="inputcontainer">
+          <!-- Formulario agregar influencer -->
+          <form id="formInfluencer" class="inputcontainer">
+            <label>Nombre</label><input required type="text" id="nombre" />
 
-              <label>Nombre</label><input required type="text" id="nombre">
+            <label>Mail</label><input required type="email" id="mail" />
 
-              <label>Mail</label><input required type="email" id="mail">
-
-              <label>%Comisión</label><input required type="number" id="comision">
-              <button type="button" command="close" commandfor="modalInfluencers">Cancelar</button>
-              <button type="submit">Agregar</button>
-            </form>
+            <label>%Comisión</label
+            ><input required type="number" id="comision" />
+            <button type="button" command="close" commandfor="modalInfluencers">
+              Cancelar
+            </button>
+            <button type="submit">Agregar</button>
+          </form>
         </dialog>
 
-      
         <article>
           <h3>Tabla de influencers</h3>
           <!-- Tabla influencers -->
@@ -52,7 +53,9 @@
             <!-- Encabezado de columnas de la tabla -->
             <thead>
               <tr>
-                <th><button type="button" id="ordenarNombre">Nombre ⮃</button></th>
+                <th>
+                  <button type="button" id="ordenarNombre">Nombre ⮃</button>
+                </th>
                 <th>Email</th>
                 <th>%Comisión</th>
                 <th>Total a cobrar</th>
@@ -72,13 +75,14 @@
 
       <!-- Section para manejo de artículos -->
       <section>
-
         <h2>Manejo de Artículos</h2>
 
         <!-- Alta de Artículo -->
         <article>
           <h3>Alta de Artículo</h3>
-          <button command="show-modal" commandfor="modalArticulo">Agregar Artículo</button>
+          <button command="show-modal" commandfor="modalArticulo">
+            Agregar Artículo
+          </button>
         </article>
 
         <dialog id="modalArticulo">
@@ -87,13 +91,18 @@
           <h4>Artículo</h4>
 
           <form id="formArticulo" class="inputcontainer">
-            <label>Código</label><input required type="text" maxlength="3" id="codigoArticulo">
+            <label>Código</label
+            ><input required type="text" maxlength="3" id="codigoArticulo" />
 
-            <label>Descripción</label><input required type="text" id="descripcionArticulo">
+            <label>Descripción</label
+            ><input required type="text" id="descripcionArticulo" />
 
-            <label>Precio</label><input required type="number" id="precioArticulo">
+            <label>Precio</label
+            ><input required type="number" id="precioArticulo" />
 
-            <button type="button" command="close" commandfor="modalArticulo">Cancelar</button>
+            <button type="button" command="close" commandfor="modalArticulo">
+              Cancelar
+            </button>
 
             <button type="submit">Agregar</button>
           </form>
@@ -102,11 +111,13 @@
         <!-- Tabla de artículos -->
         <article>
           <h3>Tabla de artículos</h3>
-            <!-- Encabezado de columnas de la tabla -->
+          <!-- Encabezado de columnas de la tabla -->
           <table>
             <thead>
-              <tr> 
-                <th><button type="button" id="ordenarTabla">Código⮃</button></th>
+              <tr>
+                <th>
+                  <button type="button" id="ordenarTabla">Código⮃</button>
+                </th>
                 <th>Descripción</th>
                 <th>Precio</th>
               </tr>
@@ -127,11 +138,13 @@
         <!-- Alta de Venta -->
         <article>
           <h3>Alta de Venta</h3>
-          <button command="show-modal" commandfor="modalVenta">Agregar Venta</button>
+          <button command="show-modal" commandfor="modalVenta">
+            Agregar Venta
+          </button>
         </article>
 
         <dialog id="modalVenta">
-        <!-- Datos a agregar -->
+          <!-- Datos a agregar -->
           <h3>Datos de la venta a agregar</h3>
           <h4>Venta</h4>
 
@@ -146,31 +159,30 @@
             <select id="desplegableInfluencers"></select>
 
             <label>Cantidad</label>
-            <input required type="number" id="cantidad">
+            <input required type="number" id="cantidad" />
 
             <label>Medio</label>
             <select id="desplegableMedios">
-            <option value="Instagram">1-Instagram</option>
-            <option value="YouTube">2-YouTube</option>
-            <option value="X">3-X</option>
-            <option value="TikTok">4-TikTok</option>
-            <option value="Facebook">5-Facebook</option>
-            <option value="Otras">6-Otras</option>
+              <option value="Instagram">1-Instagram</option>
+              <option value="YouTube">2-YouTube</option>
+              <option value="X">3-X</option>
+              <option value="TikTok">4-TikTok</option>
+              <option value="Facebook">5-Facebook</option>
+              <option value="Otras">6-Otras</option>
             </select>
-            
-            <button type="button" command="close" commandfor="modalVenta">Cancelar</button>
+
+            <button type="button" command="close" commandfor="modalVenta">
+              Cancelar
+            </button>
 
             <button type="submit">Agregar</button>
           </form>
-      
         </dialog>
 
         <!-- Tabla de ventas -->
         <article>
-
           <h3>Tabla de ventas</h3>
           <table>
-
             <!-- Encabezado de columnas de la tabla -->
             <thead>
               <tr>
@@ -188,41 +200,39 @@
         </article>
 
         <article>
-        <h2>Gráfico de burbujas</h2>
-        
-        <div class="contenedor-burbujas">
+          <h2>Gráfico de burbujas</h2>
 
-        <div>
-        <div class="burbuja burbujaInstagram">0</div>
-          <p>Instagram</p>
-        </div>
+          <div class="contenedor-burbujas">
+            <div>
+              <div class="burbuja burbujaInstagram">0</div>
+              <p>Instagram</p>
+            </div>
 
-        <div> 
-          <div class="burbuja burbujaYouTube">0</div>
-          <p>YouTube</p>
-        </div>
-       
-        <div>  
-          <div class="burbuja burbujaX">0</div>
-          <p>X</p>
-        </div>
-      
-        <div>   
-          <div class="burbuja burbujaTikTok">0</div>
-          <p>TikTok</p>
-        </div>
-     
-        <div>  
-          <div class="burbuja burbujaFacebook">0</div>
-          <p>Facebook</p></div>
-      
-        <div>    
-          <div class="burbuja burbujaOtras">0</div>
-          <p>Otras</p>
-        </div>
+            <div>
+              <div class="burbuja burbujaYouTube">0</div>
+              <p>YouTube</p>
+            </div>
 
-        </div>
+            <div>
+              <div class="burbuja burbujaX">0</div>
+              <p>X</p>
+            </div>
 
+            <div>
+              <div class="burbuja burbujaTikTok">0</div>
+              <p>TikTok</p>
+            </div>
+
+            <div>
+              <div class="burbuja burbujaFacebook">0</div>
+              <p>Facebook</p>
+            </div>
+
+            <div>
+              <div class="burbuja burbujaOtras">0</div>
+              <p>Otras</p>
+            </div>
+          </div>
         </article>
       </section>
     </main>
@@ -231,14 +241,14 @@
       <a target="_blank" href="https://www.linkedin.com/in/mauricio-perez9918/"
         >Mauricio Perez - Estudiante Nro: 378914</a
       >
-      <br>
+      <br />
       <a
         target="_blank"
         href="https://www.linkedin.com/in/mariano-albornoz-2b0686247/"
         >Mariano Albornoz - Estudiante Nro: 357964</a
       >
     </footer>
-    
+
     <script type="module" src="js/clases.js"></script>
     <script type="module" src="js/funciones.js"></script>
   </body>

@@ -1,4 +1,4 @@
- /* <!-- Mauricio Perez Nro: 378914 - Mariano Albornoz  Nro: 357964 --> */
+/* <!-- Mauricio Perez Nro: 378914 - Mariano Albornoz  Nro: 357964 --> */
 
 body {
   background-color: gray;
@@ -22,7 +22,7 @@ article {
 }
 
 dialog {
-border-radius: 6px;
+  border-radius: 6px;
 }
 
 h2 {
@@ -53,7 +53,7 @@ button {
   margin: 3px;
 }
 
-button:hover{
+button:hover {
   cursor: pointer;
 }
 
@@ -84,7 +84,7 @@ a:hover {
   color: brown;
 }
 
-.contenedor-burbujas{
+.contenedor-burbujas {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -100,27 +100,26 @@ a:hover {
   height: 20px;
 }
 
-.burbujaInstagram{
+.burbujaInstagram {
   background-color: red;
 }
 
-.burbujaYouTube{
+.burbujaYouTube {
   background-color: blue;
 }
 
-.burbujaX{
+.burbujaX {
   background-color: green;
 }
 
-.burbujaTikTok{
+.burbujaTikTok {
   background-color: yellow;
 }
 
-.burbujaFacebook{
+.burbujaFacebook {
   background-color: violet;
 }
 
-.burbujaOtras{
+.burbujaOtras {
   background-color: orange;
 }
-
